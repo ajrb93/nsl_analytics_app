@@ -20,7 +20,7 @@ teams = sorted(list(set(teams)))  # Get unique team names
 st.sidebar.header("View Selection")
 view = st.sidebar.radio(
     "Select View:",
-    ["Standings", "Performance (League)", "Schedule (League)", "Schedule (Team)", "Performance (Team)", "Lineups (Team)"]
+    ["Standings", "Performance (League)", "Schedule (League)", "Schedule (Team)", "Performance (Team)", "Lineups (Team)","MVP"]
 )
 
 # Standings time period filter (only show for Standings view)
@@ -82,6 +82,5 @@ elif view == "Lineups (Team)":
     else:
         st.error(f"Image not found for {selected_team}")
 
-# Optional: Add a footer with last update date
-st.sidebar.markdown("---")
-st.sidebar.caption("Last updated: [Add your update date here]")
+elif view == "MVP":
+    st.image('images/mvp.png', use_container_width=True)
