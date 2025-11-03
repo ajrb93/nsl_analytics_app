@@ -56,10 +56,10 @@ if view == "Standings":
         st.error(f"Image not found: {image_path}")
 
 elif view == "Performance (League)":
-    st.image('images/performance_league.png', use_container_width=True)
+    st.image('images/performance.png', use_container_width=True)
 
 elif view == "Schedule (League)":
-    st.image('images/schedule_league.png', use_container_width=True)
+    st.image('images/schedule.png', use_container_width=True)
 
 elif view == "Schedule (Team)":
     image_path = f'images/schedule/{selected_team}.png'
