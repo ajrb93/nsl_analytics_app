@@ -1,0 +1,7 @@
+team,season,ORtg,DRtg
+AFC Toronto,2025,1,1
+Calgary Wild FC,2025,1,1
+Halifax Tides FC,2025,1,1
+Montreal Roses FC,2025,1,1
+Ottawa Rapid FC,2025,1,1
+Vancouver Rise FC,2025,1,1

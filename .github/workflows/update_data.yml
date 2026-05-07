@@ -1,0 +1,39 @@
+name: Daily Stats Update
+on:
+  schedule:
+    - cron: '0 */24 * * *'  # Runs every 6 hours
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas numpy beautifulsoup4 playwright lxml pyarrow scipy
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run Scraper
+        run: | 
+             python src/1_Load_Data.py
+             python src/2_Create_Ratings.py
+             python src/3_Simulate_Season.py
+
+      - name: Commit and Push Dynamic Data
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add data/
+          git commit -m "Auto-update dynamic stats" || echo "No changes to commit"
+          git push
