@@ -1066,8 +1066,12 @@ def plot_xg_chart(data):
     return fig
 
 standings = pd.read_feather('data/standings.ftr')
-color_map = pd.read_feather('data/color_map.ftr')
-color_map['home_secondary'] = color_map.apply(lambda row: '#FFFFFF' if row['home_primary'] == row['home_secondary'] else row['home_secondary'],axis=1)
+color_map = pd.DataFrame([['AFC Toronto','#4B0B1A','#FF2929'],
+                          ['Calgary Wild FC','#3B1E5E','#C1272D'],
+                          ['Halifax Tides FC','#221C35','#00B0B9'],
+                          ['Montreal Roses FC','#2D5DA8','#A1283B'],
+                          ['Ottawa Rapid FC','#1F5D8C','#4FA7E0'],
+                          ['Vancouver Rise FC','#000000','#84AE99']],columns=['team','home_primary','home_secondary']).set_index('team')
 team_colors = color_map.to_dict('index')
 matches = pd.read_feather('data/matches.ftr')
 player_stats = pd.read_feather('data/player_stats.ftr')
