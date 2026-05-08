@@ -1074,7 +1074,7 @@ color_map = pd.DataFrame([['AFC Toronto','#4B0B1A','#FF2929'],
                           ['Vancouver Rise FC','#000000','#84AE99']],columns=['team','home_primary','home_secondary']).set_index('team')
 team_colors = color_map.to_dict('index')
 matches = pd.read_feather('data/matches.ftr')
-player_stats = pd.read_feather('data/player_stats.ftr')
+player_stats = pd.read_feather('data/PlayerStats.ftr')
 team_ratings = pd.read_feather('data/team_ratings.ftr')
 team_ratings = team_ratings[['Season','Date']].drop_duplicates().merge(team_ratings[['Season','Team']].drop_duplicates()).merge(
     team_ratings,how='outer').sort_values(['Team','Date'])
@@ -1082,7 +1082,6 @@ team_ratings[['A','B','C']] = team_ratings.groupby(['Season','Team'])[['A','B','
 standings_sims, match_sims = load_standings_sims()
 
 initial_ratings = pd.read_csv('data/Initializations.txt')
-conferences = initial_ratings.set_index('team').conference.to_dict()
 
 # --- MAIN DASHBOARD ---
 tab_standings, tab_team = st.tabs([f"Standings", "Team Profile"])
@@ -1091,7 +1090,7 @@ with tab_standings:
     col1, col2 = st.columns([2,3])
     # --- COLUMN 1: LEFT ---
     with col1:
-        subcol1, subcol2, subcol3, subcol4 = st.columns([0.5,1,1,0.75])
+        subcol1, subcol2, subcol3 = st.columns([0.5,1,1])
         with subcol1:
             season = sorted(standings_sims['season'].unique(), reverse=True)
             selected_season = st.selectbox("Select Year", options=season, index=0, key="season_picker",label_visibility="collapsed")
@@ -1101,9 +1100,6 @@ with tab_standings:
         with subcol3:
             start_dates = sorted(standings_sims[(standings_sims['season'] == selected_season) & (standings_sims['Sim_Date'] < selected_end_date)]['Sim_Date'].unique(),reverse=True)
             selected_start_date = st.selectbox("Select Relative Date",options=start_dates,index=len(start_dates)-2, key='start_date_picker',label_visibility='collapsed')
-        with subcol4:
-            options = ['Overall','Eastern','Western']
-            selected_type = st.selectbox('Select Conference',options=options,index=0,key='type_picker',label_visibility='collapsed')
         matches_df = create_matches_df(match_sims,matches,team_ratings,selected_season,selected_end_date)
         fig = create_results_figure(matches_df)
         st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Results</p>", unsafe_allow_html=True)
@@ -1120,13 +1116,6 @@ with tab_standings:
 
     with col2:
         standings_df = create_standings_file(standings,standings_sims,team_ratings,selected_season,selected_end_date,selected_start_date).sort_values(['P','GD'],ascending=False)
-        standings_df['conference'] = standings_df.Team.replace(conferences)
-        if selected_type == 'Eastern':
-            standings_df = standings_df[standings_df.conference == 'Eastern']
-        elif selected_type == 'Western':
-            standings_df = standings_df[standings_df.conference == 'Western']
-        else: 
-            pass
         fig = plot_standings_table(standings_df.drop(columns='season'))
         buf = BytesIO()
         fig.savefig(buf, format='png', bbox_inches='tight', dpi=150)
