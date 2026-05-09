@@ -125,10 +125,10 @@ colors_r = [(0,0.75,0),(1,1,1),(0.75,0,0),]
 n_bins = 100
 cmap = mcolors.LinearSegmentedColormap.from_list('redwhitegreen',colors,N=n_bins)
 cmap_r = mcolors.LinearSegmentedColormap.from_list('redwhitegreen_r',colors_r,N=n_bins)
-norm_o = mcolors.TwoSlopeNorm(vmin=0,vcenter=1.3,vmax=2.6)
-norm_r = mcolors.TwoSlopeNorm(vmin=0,vcenter=1,vmax=3)
+norm_o = mcolors.TwoSlopeNorm(vmin=0,vcenter=1.35,vmax=2.6)
+norm_r = mcolors.TwoSlopeNorm(vmin=0,vcenter=1,vmax=2)
 norm_p = mcolors.TwoSlopeNorm(vmin=0,vcenter=1.5,vmax=3)
-norm_w = mcolors.TwoSlopeNorm(vmin=0,vcenter=1/3,vmax=1)
+norm_w = mcolors.TwoSlopeNorm(vmin=0,vcenter=1/4,vmax=1)
 norm_perf = mcolors.TwoSlopeNorm(vmin=-1.5, vcenter=0, vmax=1.5)
 
 def plot_standings_table(standings_df):
@@ -184,13 +184,13 @@ def plot_standings_table(standings_df):
         ax.annotate(f"{row['oPRE']:.2f}", (2.4/10, i_loc), va='center', ha='center', size=9)
         delta_color = 'darkgreen' if row['oPREΔ'] > 0 else 'darkred'
         ax.annotate(f"({'+' if row['oPREΔ'] > 0 else ''}{row['oPREΔ']:.0%})", (2.9/10, i_loc), va='center', ha='center', size=9, color=delta_color)
-        ax.add_patch(Rectangle((2.15/10, i_loc - space/2), 0.5/10, space,facecolor=cmap(norm_o(row['oPRE']))))
+        ax.add_patch(Rectangle((2.15/10, i_loc - space/2), 0.5/10, space,facecolor=cmap(norm_r(row['oPRE']))))
 
         # Defensive (dPRE)
         ax.annotate(f"{row['dPRE']:.2f}", (3.4/10, i_loc), va='center', ha='center', size=9)
         delta_color = 'darkgreen' if row['dPREΔ'] < 0 else 'darkred'
         ax.annotate(f"({'+' if row['dPREΔ'] < 0 else ''}{row['dPREΔ']*-1:.0%})", (3.9/10, i_loc), va='center', ha='center', size=9, color=delta_color)
-        ax.add_patch(Rectangle((3.15/10, i_loc - space/2), 0.5/10, space,facecolor=cmap(1 - norm_o(row['dPRE']))))
+        ax.add_patch(Rectangle((3.15/10, i_loc - space/2), 0.5/10, space,facecolor=cmap(1 - norm_r(row['dPRE']))))
 
         # Performance (nRTG, oRTG, dRTG)
         ax.add_patch(Rectangle((4.15/10, i_loc - space/2), (1/3)/10, space,facecolor=cmap(norm_perf(row['nRTG']))))
@@ -714,7 +714,7 @@ def plot_history_table(results):
     space = total_height / len(results)
     i_loc = top - space / 2
 
-    norm_rk = mcolors.TwoSlopeNorm(vmin=1,vcenter=15,vmax=30)
+    norm_rk = mcolors.TwoSlopeNorm(vmin=1,vcenter=3.5,vmax=6)
     
 
     # Vertical dividers (between groups)
@@ -735,12 +735,12 @@ def plot_history_table(results):
         ax.annotate(f"{row['A']:.2f}", (col_x['Off']+0.035, i_loc), va='center', ha='center', size=7)
         delta_color = 'darkgreen' if row['A_C'] > 0 else 'darkred'
         ax.annotate(f"({'+' if row['A_C'] > 0 else ''}{row['A_C']:.0%})", (col_x['Off']+0.12, i_loc), va='center', ha='center', size=7, color=delta_color)
-        ax.add_patch(Rectangle((col_x['Off']-0.005, i_loc - space/2), 0.075, space,facecolor=cmap(norm_o(row['A']))))
+        ax.add_patch(Rectangle((col_x['Off']-0.005, i_loc - space/2), 0.075, space,facecolor=cmap(norm_r(row['A']))))
 
         ax.annotate(f"{row['B']:.2f}", (col_x['Def']+0.035, i_loc), va='center', ha='center', size=7)
         delta_color = 'darkgreen' if row['B_C'] < 0 else 'darkred'
         ax.annotate(f"({'+' if row['B_C'] < 0 else ''}{row['B_C']*-1:.0%})", (col_x['Def']+0.12, i_loc), va='center', ha='center', size=7, color=delta_color)
-        ax.add_patch(Rectangle((col_x['Def']-0.005, i_loc - space/2), 0.075, space,facecolor=cmap_r(norm_o(row['B']))))
+        ax.add_patch(Rectangle((col_x['Def']-0.005, i_loc - space/2), 0.075, space,facecolor=cmap_r(norm_r(row['B']))))
 
         ax.annotate(f"{row['C']:.0%}", (col_x['Skill']+0.035, i_loc), va='center', ha='center', size=7)
         delta_color = 'darkgreen' if row['C_C'] > 0 else 'darkred'
@@ -1109,11 +1109,6 @@ with tab_standings:
         st.markdown("")
         st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Schedule</p>", unsafe_allow_html=True)
         scrollable_plot(fig, height=200)
-        st.markdown("")
-        mvp_df = create_player_mvps(player_stats,matches_df,int(selected_season),selected_end_date)
-        st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Best Players</p>", unsafe_allow_html=True)
-        fig = create_mvp_figure(mvp_df)
-        scrollable_plot(fig, height=200)
 
     with col2:
         standings_df = create_standings_file(standings,standings_sims,team_ratings,selected_season,selected_end_date,selected_start_date).sort_values(['P','GD'],ascending=False)
@@ -1132,6 +1127,11 @@ with tab_standings:
         with subcol2:
             fig_heatmap = plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_colors)
             st.plotly_chart(fig_heatmap)
+            st.markdown("")
+            mvp_df = create_player_mvps(player_stats,matches_df,int(selected_season),selected_end_date)
+            st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Best Players</p>", unsafe_allow_html=True)
+            fig = create_mvp_figure(mvp_df)
+            scrollable_plot(fig, height=200)
 
 with tab_team:
     col1, col2 = st.columns([2,3])
