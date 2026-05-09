@@ -83,20 +83,20 @@ def load_standings_sims():
     return standings_sims, match_sims
 
 def create_standings_file(standings,standings_sims,team_ratings,season,max_date,min_date):
-    temp = standings[standings.season == season][['season','F','F_score','A_score','F_P','F_xg','A_xg','F_xPts','oRTG','dRTG','nRTG']].reset_index(drop=True)
+    temp = standings[standings.season == season][['season','F_team','F_score','A_score','F_p','F_xg','A_xg','F_xpts','oRTG','dRTG','nRTG']].reset_index(drop=True)
     temp['GD'] = temp.F_score - temp.A_score
     temp['xGD'] = temp.F_xg - temp.A_xg
-    temp_sim = standings_sims[standings_sims.Sim_Date == max_date].set_index('index')[['Points','Champ','HomeField','Playoffs','range']]
-    temp_sim2 = standings_sims[standings_sims.Sim_Date == min_date].set_index('index')[['Points','Champ','HomeField','Playoffs']]
+    temp_sim = standings_sims[standings_sims.Sim_Date == max_date].set_index('index')[['Points','Champ','Playoffs','Last','range']]
+    temp_sim2 = standings_sims[standings_sims.Sim_Date == min_date].set_index('index')[['Points','Champ','Playoffs','Last']]
     temp_sim2 = temp_sim - temp_sim2
     temp_sim3 = team_ratings[team_ratings.Date == max_date].set_index('Team')[['Date','A','B','C']]
     temp_sim4 = team_ratings[team_ratings.Date == min_date].set_index('Team')[['A','B','C']]
     temp_sim4 = temp_sim3 - temp_sim4
-    temp = temp.merge(temp_sim.reset_index(),left_on='F',right_on='index').merge(temp_sim2.reset_index(),left_on='F',right_on='index',suffixes=['','_c']).merge(
-        temp_sim3.reset_index(),left_on='F',right_on='Team').merge(temp_sim4.reset_index(),left_on='F',right_on='Team',suffixes=['','_c'])
-    temp = temp[['season','Team','C','C_c','A','A_c','B','B_c','nRTG','oRTG','dRTG','Points','Points_c','F_P','F_xPts','GD','xGD','Champ','Champ_c','Playoffs','Playoffs_c','Last',
+    temp = temp.merge(temp_sim.reset_index(),left_on='F_team',right_on='index').merge(temp_sim2.reset_index(),left_on='F_team',right_on='index',suffixes=['','_c']).merge(
+        temp_sim3.reset_index(),left_on='F_team',right_on='Team').merge(temp_sim4.reset_index(),left_on='F_team',right_on='Team',suffixes=['','_c'])
+    temp = temp[['season','Team','C','C_c','A','A_c','B','B_c','nRTG','oRTG','dRTG','Points','Points_c','F_p','F_xpts','GD','xGD','Champ','Champ_c','Playoffs','Playoffs_c','Last',
                  'Last_c','range']].rename(
-                     columns={'A':'oPRE','A_c':'oPREΔ','B':'dPRE','B_c':'dPREΔ','F_P':'P','F_xPts':'xPts','Points':'Proj','Points_c':'ProjΔ','C':'nPRE','C_c':'nPREΔ',
+                     columns={'A':'oPRE','A_c':'oPREΔ','B':'dPRE','B_c':'dPREΔ','F_p':'P','F_xpts':'xpts','Points':'Proj','Points_c':'ProjΔ','C':'nPRE','C_c':'nPREΔ',
                                'Champ':'Win','Champ_c':'WinΔ','Playoffs_c':'PlayoffsΔ','Last_c':'LastΔ'})
     return temp
 
@@ -207,7 +207,7 @@ def plot_standings_table(standings_df):
 
         # Points + xPts
         ax.annotate(f"{int(row['P'])}", (6.0/10, i_loc), va='center', ha='center', size=9)
-        ax.annotate(f"{row['xPts']:.1f}", (6.25/10, i_loc), va='center', ha='center', size=9)
+        ax.annotate(f"{row['xpts']:.1f}", (6.25/10, i_loc), va='center', ha='center', size=9)
 
         # GD + xGD
         ax.annotate(f"{int(row['GD'])}", (6.6/10, i_loc), va='center', ha='center', size=9)
@@ -322,7 +322,7 @@ def plot_ratings_scatter(standings_df, team_colors):
 def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_colors):
     # Get position probabilities for selected date, ordered by current standings
     sim_data = standings_sims[standings_sims.Sim_Date == selected_end_date].set_index('index')
-    position_cols = [str(i) for i in range(1, 21)]
+    position_cols = [str(i) for i in range(1, 7)]
     
     # Order teams by current points (same order as standings table)
     teams_ordered = standings_df['Team'].tolist()
@@ -357,28 +357,28 @@ def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_
     return fig
 
 def create_matches_df(match_sims,matches,team_ratings,selected_season,selected_end_date):
-    match_sims = match_sims[match_sims.Sim_Date <= selected_end_date].sort_values('Sim_Date').groupby(['game_date','Home','Away']).tail(1)
-    match_sims = match_sims[['Sim_Date','game_date','Home','Away','h_exp','a_exp','h_win','d_win','a_win']]
+    match_sims = match_sims[match_sims.Sim_Date <= selected_end_date].sort_values('Sim_Date').groupby(['date','Home','Away']).tail(1)
+    match_sims = match_sims[['Sim_Date','date','Home','Away','h_exp','a_exp','h_win','d_win','a_win']]
     matches = matches[matches.season == selected_season]
-    matches = matches[['game_date','home','away','home_score','away_score','home_xg','away_xg','home_P','away_P','home_perf','away_perf','home_xPts','away_xPts']]
-    matches.loc[matches.game_date.dt.date > selected_end_date,('home_score','away_score','home_xg','away_xg','home_P','away_P','home_perf','away_perf',
-                                                       'home_xPts','away_xPts')] = np.nan
-    matches = matches.merge(match_sims,left_on=['game_date','home','away'],right_on=['game_date','Home','Away']).drop(columns=['Home','Away'])
+    matches = matches[['date','home_team','away_team','home_score','away_score','home_xg','away_xg','home_p','away_p','home_perf','away_perf','home_xpts','away_xpts']]
+    matches.loc[pd.to_datetime(matches.date).dt.date > selected_end_date,('home_score','away_score','home_xg','away_xg','home_p','away_p','home_perf','away_perf',
+                                                       'home_xpts','away_xpts')] = np.nan
+    matches = matches.merge(match_sims,left_on=['date','home_team','away_team'],right_on=['date','Home','Away']).drop(columns=['Home','Away'])
 
     plot_df = matches.merge(
-        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','home'], right_on=['Date','Team']).merge(
-        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','away'], right_on=['Date','Team'], suffixes=['_H','_A']).drop(
+        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','home_team'], right_on=['Date','Team']).merge(
+        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','away_team'], right_on=['Date','Team'], suffixes=['_H','_A']).drop(
         columns=['Sim_Date','Date_H','Date_A'])
     plot_df['Pre_Pts_H'] = plot_df.h_win * 3 + plot_df.d_win
     plot_df['Pre_Pts_A'] = plot_df.a_win * 3 + plot_df.d_win
-    return plot_df.sort_values('game_date').reset_index(drop=True)
+    return plot_df.sort_values('date').reset_index(drop=True)
 
 def create_results_figure(plot_df):
-    results = plot_df[~plot_df.home_score.isna()].reset_index(drop=True).sort_values('game_date',ascending=False)
+    results = plot_df[~plot_df.home_score.isna()].reset_index(drop=True).sort_values('date',ascending=False)
     results[' '] = ''
     results['score'] = results.home_score.astype('int').astype('str') + ' - ' + results.away_score.astype('int').astype('str')
-    results = results[['game_date','home','Pre_Pts_H','score','Pre_Pts_A','away',' ','home_xPts','away_xPts',' ','home_xg','away_xg','home_score','away_score']].rename(
-        columns={'game_date':'Date','home':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away':'Away','home_xPts':'Per_H','away_xPts':'Per_A',
+    results = results[['date','home_team','Pre_Pts_H','score','Pre_Pts_A','away_team',' ','home_xpts','away_xpts',' ','home_xg','away_xg','home_score','away_score']].rename(
+        columns={'date':'Date','home_team':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away_team':'Away','home_xpts':'Per_H','away_xpts':'Per_A',
                  'home_xg':'xG_H','away_xg':'xG_A'})
 
     fig_height = max(4, len(results) * 0.2)
@@ -486,11 +486,11 @@ def create_results_figure(plot_df):
     return fig
 
 def create_schedule_figure(plot_df):
-    results = plot_df[plot_df.home_score.isna()].reset_index(drop=True).sort_values('game_date',ascending=True)
+    results = plot_df[plot_df.home_score.isna()].reset_index(drop=True).sort_values('date',ascending=True)
     results[' '] = ''
     results['score'] = ''
-    results = results[['game_date','home','Pre_Pts_H','score','Pre_Pts_A','away',' ','C_H','C_A',' ','h_win','d_win','a_win']].rename(
-        columns={'game_date':'Date','home':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away':'Away','C_H':'HRtg','C_A':'ARtg',
+    results = results[['date','home_team','Pre_Pts_H','score','Pre_Pts_A','away_team',' ','C_H','C_A',' ','h_win','d_win','a_win']].rename(
+        columns={'date':'Date','home_team':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away_team':'Away','C_H':'HRtg','C_A':'ARtg',
                  'h_exp':'HpG','a_exp':'ApG'})
 
     fig_height = max(4, len(results) * 0.2)
@@ -599,18 +599,19 @@ def scrollable_plot(fig, height=400):
     """, unsafe_allow_html=True)
 
 def create_player_mvps(player_stats,matches_df,selected_season,selected_end_date):
-    player_stats = player_stats[(player_stats.season == selected_season) & (player_stats.game_date <= selected_end_date)].reset_index(drop=True)
-    player_stats.loc[(player_stats.minutesPlayed > 0) & (player_stats.rating.isna()),'rating'] = 6.6
-    player_stats['Rtg_Weight'] = player_stats.minutesPlayed * player_stats.rating
-    player_stats = player_stats.groupby(['id','name','position']).agg({'team':'unique','minutesPlayed':'sum','Rtg_Weight':'sum'})
-
-    avg = player_stats.Rtg_Weight.sum() / player_stats.minutesPlayed.sum()
-    player_stats['Rtg'] = player_stats.Rtg_Weight / player_stats.minutesPlayed
-    player_stats['MVPRtg'] = (player_stats.Rtg * player_stats.minutesPlayed + avg * (player_stats.minutesPlayed.max() - player_stats.minutesPlayed)) / player_stats.minutesPlayed.max()
-    return player_stats.reset_index()[['name','position','team','MVPRtg']]
-
+    player_stats = player_stats[(player_stats.season == selected_season) & (player_stats.Date.dt.date <= selected_end_date)].reset_index(drop=True)
+    player_stats = player_stats[player_stats.Type == 'Regular']
+    player_stats = player_stats.merge(pd.pivot_table(
+        player_stats,index='Name',columns='P',values='MIN',aggfunc='sum').fillna(0).idxmax(axis=1).reset_index().rename(columns={0:'Pos'}))
+    player_mvp = player_stats.groupby(['Name','Pos']).agg(
+        {'MIN':'sum','Rtg':'sum','Team': lambda x: ', '.join(sorted(set(x)))})
+    player_mvp['per90'] = player_mvp.Rtg / player_mvp.MIN * 90
+    player_mvp = player_mvp.drop(columns=['MIN']).rename(columns={'Rtg':'Goals Added','per90':'GA per 90'}).reset_index()
+    
+    return player_mvp.reset_index()
+    
 def create_mvp_figure(plot_df):
-    mvps = plot_df.sort_values('MVPRtg',ascending=False).head(100)
+    mvps = plot_df.sort_values('Goals Added',ascending=False)
 
     fig, ax = plt.subplots(figsize=(8,40))
     ax.set_xlim(0, 1)
@@ -619,10 +620,10 @@ def create_mvp_figure(plot_df):
 
     # Column x positions
     col_x = {
-        '':   0.01,
-        'Pos':0.35,
-        'Team':0.4,
-        'Rtg':   0.9}
+        'Player':   0.01,
+        'Pos':0.505,
+        'Goals+':0.565,
+        'G+/90':   0.805}
 
     # Headers
     header_y = (len(mvps)+0.5)/(len(mvps)+1)
@@ -643,7 +644,7 @@ def create_mvp_figure(plot_df):
         ax.vlines(x-0.005, bottom_margin, top, color='black', linewidth=0.5)
 
     for _, row in mvps.iterrows():
-        if len(row['team']) > 1:
+        if len(row['Team']) > 1:
             primary = 'white'
             secondary = 'black'
         else:
@@ -652,10 +653,10 @@ def create_mvp_figure(plot_df):
 
         ax.add_patch(Rectangle((0, i_loc - space/2),1, space, facecolor=primary))
         # Text annotations
-        ax.annotate(row['name'], (col_x[''], i_loc), va='center', ha='left', size=7,color = secondary,fontweight='bold')
-        ax.annotate(row['position'], (col_x['Pos'], i_loc), va='center', ha='left', size=7,color = secondary)
-        ax.annotate(row['team'][0], (col_x['Team'], i_loc), va='center', ha='left', size=7,color = secondary)
-        ax.annotate(f"{row['MVPRtg']:.2f}" if pd.notna(row['MVPRtg']) else '', (col_x['Rtg'], i_loc), va='center', ha='left', size=7,color = secondary)
+        ax.annotate(row['Name'], (col_x['Player'], i_loc), va='center', ha='left', size=7,color = secondary,fontweight='bold')
+        ax.annotate(row['Pos'], (col_x['Pos'], i_loc), va='center', ha='left', size=7,color = secondary)
+        ax.annotate(f"{row['Goals Added']:.2f}" if pd.notna(row['Goals Added']) else '', (col_x['G+/90'], i_loc), va='center', ha='left', size=7,color = secondary)
+        ax.annotate(f"{row['GA per 90']:.2f}" if pd.notna(row['GA per 90']) else '', (col_x['G+/90'], i_loc), va='center', ha='left', size=7,color = secondary)
         # Row divider
         ax.axhline(i_loc - space/2, color='black', linewidth=0.3)
         i_loc -= space
@@ -663,20 +664,19 @@ def create_mvp_figure(plot_df):
 
 def create_multi_year_standings(team_ratings,standings):
     temp1 = team_ratings.groupby('Team').head(1).reset_index()
-    temp1.Season = (temp1.Season.astype('int') - 1).astype('str')
+    temp1.Season = (temp1.Season.astype('int') - 1)
     temp2 = team_ratings.groupby(['Team','Season']).tail(1).reset_index()
     temp_season_ratings = pd.concat((temp1,temp2))[['Season','Team','A','B','C']].sort_values(['Team','Season'])
     temp_season_ratings[['A_C','B_C','C_C']] = temp_season_ratings[['A','B','C']] - temp_season_ratings.groupby('Team')[['A','B','C']].shift(periods=1)
 
     temp_standings = standings.copy()
-    temp_standings.season = temp_standings.season.astype('str')
     temp_standings['GD'] = temp_standings.F_score - temp_standings.A_score
     temp_standings['xGD'] = temp_standings.F_xg - temp_standings.A_xg
-    temp_standings = temp_standings.sort_values(['F_P','GD','F_score'],ascending=False)
+    temp_standings = temp_standings.sort_values(['F_p','GD','F_score'],ascending=False)
     temp_standings['Rank'] = 1
     temp_standings.Rank = temp_standings.groupby('season').Rank.cumsum()
-    temp_standings = temp_standings[['season','F','F_P','F_xPts','GD','xGD','Rank']].rename(
-        columns={'season':'Season','F':'Team'})
+    temp_standings = temp_standings[['season','F_team','F_p','F_xpts','GD','xGD','Rank']].rename(
+        columns={'season':'Season','F_team':'Team'})
     return temp_season_ratings.merge(temp_standings,on=['Team','Season']).sort_values('Season',ascending=False)
 
 def plot_history_table(results):
@@ -724,8 +724,8 @@ def plot_history_table(results):
 
     for _, row in results.iterrows():
         ax.annotate('20'+str(row['Season']), (col_x['1']+0.035, i_loc), va='center', ha='center', size=7)
-        ax.annotate(f"{int(row['F_P'])}", (col_x['Points']+0.035, i_loc), va='center', ha='center', size=7)
-        ax.annotate(f"{row['F_xPts']:.1f}", (col_x['Points']+0.095, i_loc), va='center', ha='center', size=7)
+        ax.annotate(f"{int(row['F_p'])}", (col_x['Points']+0.035, i_loc), va='center', ha='center', size=7)
+        ax.annotate(f"{row['F_xpts']:.1f}", (col_x['Points']+0.095, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{int(row['GD'])}", (col_x['GD']+0.035, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{row['xGD']:.1f}", (col_x['GD']+0.095, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{int(row['Rank'])}", (col_x['Rk']+0.02, i_loc), va='center', ha='center', size=7)
@@ -753,31 +753,31 @@ def plot_history_table(results):
     return fig
 
 def create_schedule_results(match_sims,matches,team_ratings,selected_season,selected_team):
-    match_sims = match_sims.sort_values('Sim_Date').groupby(['game_date','Home','Away']).tail(1)
-    match_sims = match_sims[['Sim_Date','game_date','Home','Away','h_exp','a_exp','h_win','d_win','a_win']]
+    match_sims = match_sims.sort_values('Sim_Date').groupby(['date','Home','Away']).tail(1)
+    match_sims = match_sims[['Sim_Date','date','Home','Away','h_exp','a_exp','h_win','d_win','a_win']]
     matches = matches[matches.season == selected_season]
-    matches = matches[['game_date','home','away','home_score','away_score','home_xg','away_xg','home_P','away_P','home_perf','away_perf','home_xPts','away_xPts']]
-    matches = matches.merge(match_sims,left_on=['game_date','home','away'],right_on=['game_date','Home','Away']).drop(columns=['Home','Away'])
+    matches = matches[['date','home_team','away_team','home_score','away_score','home_xg','away_xg','home_p','away_p','home_perf','away_perf','home_xpts','away_xpts']]
+    matches = matches.merge(match_sims,left_on=['date','home_team','away_team'],right_on=['date','Home','Away']).drop(columns=['Home','Away'])
 
     plot_df = matches.merge(
-        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','home'], right_on=['Date','Team']).merge(
-        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','away'], right_on=['Date','Team'], suffixes=['_H','_A']).drop(
+        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','home_team'], right_on=['Date','Team']).merge(
+        team_ratings.drop(columns=['Season','A','B']), left_on=['Sim_Date','away_team'], right_on=['Date','Team'], suffixes=['_H','_A']).drop(
         columns=['Sim_Date','Date_H','Date_A'])
     plot_df['Pre_Pts_H'] = plot_df.h_win * 3 + plot_df.d_win
     plot_df['Pre_Pts_A'] = plot_df.a_win * 3 + plot_df.d_win
 
-    plot_home = plot_df[(plot_df.home == selected_team)].reset_index(drop=True)
+    plot_home = plot_df[(plot_df.home_team == selected_team)].reset_index(drop=True)
     plot_home['Loc'] = 'H'
-    plot_home = plot_home[['game_date','Loc','C_H','home_score','away_score','C_A','away','h_win','d_win','a_win','Pre_Pts_H','home_xPts','home_xg',
-                           'away_xg']].rename(columns={'game_date':'Date','C_H':'Rtg','C_A':'ORtg','away':'Opponent','h_win':'win','d_win':'draw',
-                                                       'a_win':'loss','Pre_Pts_H':'Exp','home_xPts':'Perf','home_xg':'xGF','away_xg':'xGA',
+    plot_home = plot_home[['date','Loc','C_H','home_score','away_score','C_A','away_team','h_win','d_win','a_win','Pre_Pts_H','home_xpts','home_xg',
+                           'away_xg']].rename(columns={'date':'Date','C_H':'Rtg','C_A':'ORtg','away_team':'Opponent','h_win':'win','d_win':'draw',
+                                                       'a_win':'loss','Pre_Pts_H':'Exp','home_xpts':'Perf','home_xg':'xGF','away_xg':'xGA',
                                                        'home_score':'for_score','away_score':'against_score'})
     
-    plot_away = plot_df[(plot_df.away == selected_team)].reset_index(drop=True)
+    plot_away = plot_df[(plot_df.away_team == selected_team)].reset_index(drop=True)
     plot_away['Loc'] = 'A'
-    plot_away = plot_away[['game_date','Loc','C_A','home_score','away_score','C_H','home','a_win','d_win','h_win','Pre_Pts_A','away_xPts','away_xg',
-                           'home_xg']].rename(columns={'game_date':'Date','C_A':'Rtg','C_H':'ORtg','home':'Opponent','a_win':'win','d_win':'draw',
-                                                       'h_win':'loss','Pre_Pts_A':'Exp','away_xPts':'Perf','away_xg':'xGF','home_xg':'xGA',
+    plot_away = plot_away[['date','Loc','C_A','home_score','away_score','C_H','home_team','a_win','d_win','h_win','Pre_Pts_A','away_xpts','away_xg',
+                           'home_xg']].rename(columns={'date':'Date','C_A':'Rtg','C_H':'ORtg','home_team':'Opponent','a_win':'win','d_win':'draw',
+                                                       'h_win':'loss','Pre_Pts_A':'Exp','away_xpts':'Perf','away_xg':'xGF','home_xg':'xGA',
                                                        'away_score':'for_score','home_score':'against_score'})
     plot_df = pd.concat((plot_home,plot_away)).sort_values('Date').reset_index(drop=True)
     return plot_df
@@ -1065,7 +1065,7 @@ def plot_xg_chart(data):
     fig.update_xaxes(rangebreaks=rangebreaks)
     return fig
 
-standings = pd.read_feather('data/standings.ftr')
+standings = pd.read_feather('data/standings.ftr').reset_index()
 color_map = pd.DataFrame([['AFC Toronto','#4B0B1A','#FF2929'],
                           ['Calgary Wild FC','#3B1E5E','#C1272D'],
                           ['Halifax Tides FC','#221C35','#00B0B9'],
@@ -1084,7 +1084,7 @@ standings_sims, match_sims = load_standings_sims()
 initial_ratings = pd.read_csv('data/Initializations.txt')
 
 # --- MAIN DASHBOARD ---
-tab_standings, tab_team = st.tabs([f"Standings", "Team Profile"])
+tab_standings, tab_team = st.tabs(["Standings", "Team Profile"])
 
 with tab_standings:
     col1, col2 = st.columns([2,3])
@@ -1137,7 +1137,7 @@ with tab_team:
     with col1:
         subcol1, subcol2, subcol3 = st.columns([1.5,1.5,1.5])
         with subcol1:
-            teams = sorted(standings.F.unique())
+            teams = sorted(standings.F_team.unique())
             selected_team = st.selectbox('Select Team',options=teams,key='team_picker',label_visibility='collapsed')
         with subcol2:
             season = sorted(standings['season'].unique(), reverse=True)
