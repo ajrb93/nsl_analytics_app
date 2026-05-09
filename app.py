@@ -645,12 +645,12 @@ def create_mvp_figure(plot_df):
         ax.vlines(x-0.005, bottom_margin, top, color='black', linewidth=0.5)
 
     for _, row in mvps.iterrows():
-        if len(row['Team']) > 1:
-            primary = 'white'
-            secondary = 'black'
-        else:
+        try:
             primary = team_colors[row['team'][0]]['home_primary']
             secondary = team_colors[row['team'][0]]['home_secondary']
+        except:
+            primary = 'white'
+            secondary = 'black'
 
         ax.add_patch(Rectangle((0, i_loc - space/2),1, space, facecolor=primary))
         # Text annotations
