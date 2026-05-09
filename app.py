@@ -351,7 +351,7 @@ def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_
         ),
         margin=dict(l=10, r=10, t=10, b=10),
         width=420,  # 400px plot + room for team names on left
-        height=200
+        height=150
     )
 
     return fig
