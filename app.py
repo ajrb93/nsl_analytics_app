@@ -613,7 +613,7 @@ def create_player_mvps(player_stats,matches_df,selected_season,selected_end_date
 def create_mvp_figure(plot_df):
     mvps = plot_df.sort_values('Goals Added',ascending=False)
 
-    fig, ax = plt.subplots(figsize=(8,40))
+    fig, ax = plt.subplots(figsize=(6,40))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')
@@ -621,9 +621,10 @@ def create_mvp_figure(plot_df):
     # Column x positions
     col_x = {
         'Player':   0.01,
-        'Pos':0.505,
-        'Goals+':0.565,
-        'G+/90':   0.805}
+        'Team':0.40,
+        'Pos':0.75,
+        'Goals+':0.80,
+        'G+/90':   0.90}
 
     # Headers
     header_y = (len(mvps)+0.5)/(len(mvps)+1)
@@ -654,6 +655,7 @@ def create_mvp_figure(plot_df):
         ax.add_patch(Rectangle((0, i_loc - space/2),1, space, facecolor=primary))
         # Text annotations
         ax.annotate(row['Name'], (col_x['Player'], i_loc), va='center', ha='left', size=7,color = secondary,fontweight='bold')
+        ax.annotate(row['Team'], (col_x['Team'], i_loc), va='center', ha='left', size=7,color = secondary)
         ax.annotate(row['Pos'], (col_x['Pos'], i_loc), va='center', ha='left', size=7,color = secondary)
         ax.annotate(f"{row['Goals Added']:.2f}" if pd.notna(row['Goals Added']) else '', (col_x['Goals+'], i_loc), va='center', ha='left', size=7,color = secondary)
         ax.annotate(f"{row['GA per 90']:.2f}" if pd.notna(row['GA per 90']) else '', (col_x['G+/90'], i_loc), va='center', ha='left', size=7,color = secondary)
