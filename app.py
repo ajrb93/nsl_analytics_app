@@ -132,7 +132,7 @@ norm_w = mcolors.TwoSlopeNorm(vmin=0,vcenter=1/3,vmax=1)
 norm_perf = mcolors.TwoSlopeNorm(vmin=-1.5, vcenter=0, vmax=1.5)
 
 def plot_standings_table(standings_df):
-    fig, ax = plt.subplots(figsize=(12,12/2.33333333))
+    fig, ax = plt.subplots(figsize=(12,6/2.33333333))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')
@@ -331,7 +331,7 @@ def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_
 
     fig = go.Figure(data=go.Heatmap(
         z=heatmap_data.values,
-        x=list(range(1, 21)),
+        x=list(range(1, 7)),
         y=teams_ordered,
         colorscale='RdYlGn',
         showscale=False,
@@ -350,8 +350,8 @@ def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_
             tickfont=dict(size=10)
         ),
         margin=dict(l=10, r=10, t=10, b=10),
-        width=820,  # 400px plot + room for team names on left
-        height=400
+        width=420,  # 400px plot + room for team names on left
+        height=100
     )
 
     return fig
@@ -381,7 +381,7 @@ def create_results_figure(plot_df):
         columns={'date':'Date','home_team':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away_team':'Away','home_xpts':'Per_H','away_xpts':'Per_A',
                  'home_xg':'xG_H','away_xg':'xG_A'})
 
-    fig_height = max(4, len(results) * 0.2)
+    fig_height = max(2, len(results) * 0.2)
     fig, ax = plt.subplots(figsize=(7,fig_height))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -493,7 +493,7 @@ def create_schedule_figure(plot_df):
         columns={'date':'Date','home_team':'Home','Pre_Pts_H':'H_F','Pre_Pts_A':'A_F','away_team':'Away','C_H':'HRtg','C_A':'ARtg',
                  'h_exp':'HpG','a_exp':'ApG'})
 
-    fig_height = max(4, len(results) * 0.2)
+    fig_height = max(2, len(results) * 0.2)
     fig, ax = plt.subplots(figsize=(7,fig_height))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -655,7 +655,7 @@ def create_mvp_figure(plot_df):
         # Text annotations
         ax.annotate(row['Name'], (col_x['Player'], i_loc), va='center', ha='left', size=7,color = secondary,fontweight='bold')
         ax.annotate(row['Pos'], (col_x['Pos'], i_loc), va='center', ha='left', size=7,color = secondary)
-        ax.annotate(f"{row['Goals Added']:.2f}" if pd.notna(row['Goals Added']) else '', (col_x['G+/90'], i_loc), va='center', ha='left', size=7,color = secondary)
+        ax.annotate(f"{row['Goals Added']:.2f}" if pd.notna(row['Goals Added']) else '', (col_x['Goals Added'], i_loc), va='center', ha='left', size=7,color = secondary)
         ax.annotate(f"{row['GA per 90']:.2f}" if pd.notna(row['GA per 90']) else '', (col_x['G+/90'], i_loc), va='center', ha='left', size=7,color = secondary)
         # Row divider
         ax.axhline(i_loc - space/2, color='black', linewidth=0.3)
