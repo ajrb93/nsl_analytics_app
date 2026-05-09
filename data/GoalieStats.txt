@@ -173,3 +173,5 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46144,Regular,Vancouver Rise FC,Morgan McAslan,90,4,3,0,0,43,0,0,11,5,0
 46145,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,90,0,5,1,0,34,1,0,9,3,0
 46145,Regular,Halifax Tides FC,Rylee Foster,90,0,4,1,2,40,0,0,10,3,0
+46148,Regular,Ottawa Rapid FC,Melissa Dagenais,90,0,2,1,0,39,1,0,6,3,0
+46148,Regular,Vancouver Rise FC,Morgan McAslan,90,4,1,0,0,36,0,1,8,2,0
