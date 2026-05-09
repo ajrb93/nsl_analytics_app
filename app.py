@@ -351,7 +351,7 @@ def plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_
         ),
         margin=dict(l=10, r=10, t=10, b=10),
         width=420,  # 400px plot + room for team names on left
-        height=100
+        height=200
     )
 
     return fig
@@ -646,8 +646,8 @@ def create_mvp_figure(plot_df):
 
     for _, row in mvps.iterrows():
         try:
-            primary = team_colors[row['team'][0]]['home_primary']
-            secondary = team_colors[row['team'][0]]['home_secondary']
+            primary = team_colors[row['Team']]['home_primary']
+            secondary = team_colors[row['Team']]['home_secondary']
         except:
             primary = 'white'
             secondary = 'black'
