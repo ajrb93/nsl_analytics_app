@@ -723,7 +723,7 @@ def plot_history_table(results):
 
 
     for _, row in results.iterrows():
-        ax.annotate('20'+str(row['Season']), (col_x['1']+0.035, i_loc), va='center', ha='center', size=7)
+        ax.annotate(str(row['Season']), (col_x['1']+0.035, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{int(row['F_p'])}", (col_x['Points']+0.035, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{row['F_xpts']:.1f}", (col_x['Points']+0.095, i_loc), va='center', ha='center', size=7)
         ax.annotate(f"{int(row['GD'])}", (col_x['GD']+0.035, i_loc), va='center', ha='center', size=7)
@@ -928,8 +928,8 @@ def plot_spi_chart(data):
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
     fig.update_layout(height=200, margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.25, 0.75], tickvals=[i/10 for i in range(3, 8)],tickformat='.0%'),
                       plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
-    season_start = '02-20'
-    season_end = '11-09'
+    season_start = '04-01'
+    season_end = '11-01'
 
     rangebreaks = []
     for year in pd.to_datetime(data.Date).dt.year.unique():
@@ -1000,17 +1000,17 @@ def plot_offdef_chart(data):
         fig.add_trace(go.Scatter(x=x_fill, y=y_fill,fill='toself', mode='none',fillcolor=fill_color,showlegend=False,hoverinfo='skip'))
 
     # Draw the two lines on top
-    fig.add_hline(y=1.45,line_dash='dash',line_color='grey')
+    fig.add_hline(y=1,line_dash='dash',line_color='grey')
     fig.add_trace(go.Scatter(x=data.Date, y=data.A, mode='lines',line=dict(color='darkgreen', width=2.5), name='Off Rating'))
     fig.add_trace(go.Scatter(x=data.Date, y=data.B, mode='lines',line=dict(color='darkred', width=2.5), name='Def Rating'))
 
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
     
-    fig.update_layout(height=200,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.45, 2.55], tickvals=[i/10 for i in np.arange(5,26,5)], tickformat='.2f'),
+    fig.update_layout(height=200,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0, 2], tickvals=[i/10 for i in np.arange(0,21,5)], tickformat='.2f'),
                       plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)')
-    season_start = '02-20'
-    season_end = '11-09'
+    season_start = '04-01'
+    season_end = '11-01'
 
     rangebreaks = []
     for year in pd.to_datetime(data.Date).dt.year.unique():
@@ -1048,8 +1048,8 @@ def plot_xg_chart(data):
     fig.add_trace(go.Scatter(x=data.Date, y=xgd_roll,mode='lines', line=dict(color='black', width=3),showlegend=False, hoverinfo='skip'))
 
     fig.add_hline(y=0, line_dash='dash',line_color='grey')
-    fig.add_hline(y=1.5, line_color='darkgreen', line_dash='dash')
-    fig.add_hline(y=-1.5, line_color='darkred', line_dash='dash')
+    fig.add_hline(y=1.35, line_color='darkgreen', line_dash='dash')
+    fig.add_hline(y=-1.35, line_color='darkred', line_dash='dash')
 
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
@@ -1106,7 +1106,6 @@ with tab_standings:
         st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Results</p>", unsafe_allow_html=True)
         scrollable_plot(fig, height=200)
         fig = create_schedule_figure(matches_df)
-        st.markdown("")
         st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Schedule</p>", unsafe_allow_html=True)
         scrollable_plot(fig, height=200)
 
@@ -1127,7 +1126,6 @@ with tab_standings:
         with subcol2:
             fig_heatmap = plot_position_heatmap(standings_sims, standings_df, selected_end_date, team_colors)
             st.plotly_chart(fig_heatmap)
-            st.markdown("")
             mvp_df = create_player_mvps(player_stats,matches_df,int(selected_season),selected_end_date)
             st.markdown("<p style='font-size:14px; font-weight:bold; margin-bottom:2px;'>Best Players</p>", unsafe_allow_html=True)
             fig = create_mvp_figure(mvp_df)
