@@ -1070,12 +1070,13 @@ def plot_xg_chart(data):
 def create_player_heatmap(df,matches):
     df['Dressed'] = 1
     df = df[df.Type == 'Regular'].reset_index(drop=True)
+    df['Season'] = df.Date.dt.year
     df.Date = df.Date.dt.date
     df = pd.concat((df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','home_team']
                                             ).drop(columns=['home_team']).rename(columns={'away_team':'Opp','home_score':'GF','away_score':'GA'}),
                           df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','away_team']
                                             ).drop(columns=['away_team']).rename(columns={'home_team':'Opp','away_score':'GF','home_score':'GA'})))
-    df = df.merge(pd.pivot_table(df,index='Name',columns='P',values='MIN',aggfunc='sum').fillna(0).idxmax(axis=1).reset_index().rename(columns={0:'Pos'}))
+    df = df.merge(pd.pivot_table(df,index=['Name','Season'],columns='P',values='MIN',aggfunc='sum').fillna(0).idxmax(axis=1).reset_index().rename(columns={0:'Pos'}))
     df['P_Weight'] = df.P.replace({'G':1,'D':2,'M':3,'F':4,'':0}).astype('int') * df.MIN
     return df
 
