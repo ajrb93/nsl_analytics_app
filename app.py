@@ -928,7 +928,7 @@ def plot_spi_chart(data):
     fig.add_hline(y=0.5, line_dash='dash', line_color='gray', line_width=2)
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
-    fig.update_layout(height=200, margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.25, 0.75], tickvals=[i/10 for i in range(3, 8)],tickformat='.0%'),
+    fig.update_layout(height=180, margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.25, 0.75], tickvals=[i/10 for i in range(3, 8)],tickformat='.0%'),
                       plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
     season_start = '04-01'
     season_end = '11-01'
@@ -1009,7 +1009,7 @@ def plot_offdef_chart(data):
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
     
-    fig.update_layout(height=200,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0, 2], tickvals=[i/10 for i in np.arange(0,21,5)], tickformat='.2f'),
+    fig.update_layout(height=180,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0, 2], tickvals=[i/10 for i in np.arange(0,21,5)], tickformat='.2f'),
                       plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)')
     season_start = '04-01'
     season_end = '11-01'
@@ -1055,7 +1055,7 @@ def plot_xg_chart(data):
 
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
-    fig.update_layout(height=200,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[-4,4], tickvals=list(range(-4, 5)), tickformat='.0f'),
+    fig.update_layout(height=180,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[-4,4], tickvals=list(range(-4, 5)), tickformat='.0f'),
                       plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)')
     season_start = '02-20'
     season_end = '11-09'
@@ -1120,7 +1120,7 @@ def plot_player_heatmaps(df,selected_team,selected_season):
             return '#FFFFFF'  # white
     player_colorstext = player_rating.map(value_to_color)
 
-    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/5*4,8.5/5*4))
+    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/5*4,9/5*4))
     for i in range(0,len(player_dressed.index)):
         temp_d = player_dressed.iloc[i]
         temp_m = player_minutes.iloc[i]
@@ -1220,7 +1220,7 @@ with tab_standings:
             scrollable_plot(fig, height=200)
 
 with tab_team:
-    col1, col2 = st.columns([2,3])
+    col1, col2 = st.columns([2,3.5])
     with col1:
         subcol1, subcol2, subcol3 = st.columns([1.5,1.5,1.5])
         with subcol1:
