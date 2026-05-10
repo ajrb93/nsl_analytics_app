@@ -1112,15 +1112,15 @@ def plot_player_heatmaps(df,selected_team,selected_season):
     cmap = plt.cm.RdYlGn
     player_colors = player_rating.map(lambda x: mcolors.to_hex(cmap(norm(x))))
     def value_to_color(x):
-        if x < -0.3:
+        if x < -0.6:
             return '#FFFFFF'  # white
-        elif x <= 0.3:
+        elif x <= 0.6:
             return '#000000'  # black
         else:
             return '#FFFFFF'  # white
     player_colorstext = player_rating.map(value_to_color)
 
-    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18,9))
+    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/3*2,8/3*2))
     for i in range(0,len(player_dressed.index)):
         temp_d = player_dressed.iloc[i]
         temp_m = player_minutes.iloc[i]
@@ -1260,7 +1260,7 @@ with tab_team:
         player_heatmaps = create_player_heatmap(player_stats,matches)
         fig = plot_player_heatmaps(player_heatmaps,selected_team,selected_season)
         buf = BytesIO()
-        fig.savefig(buf, format='png', bbox_inches='tight', dpi=150)
+        fig.savefig(buf, format='png', bbox_inches='tight', dpi=200)
         buf.seek(0)
         img_base64 = base64.b64encode(buf.read()).decode()
         st.markdown(f'<img src="data:image/png;base64,{img_base64}" style="width:100%;">', unsafe_allow_html=True)
