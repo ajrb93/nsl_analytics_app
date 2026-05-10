@@ -1120,7 +1120,7 @@ def plot_player_heatmaps(df,selected_team,selected_season):
             return '#FFFFFF'  # white
     player_colorstext = player_rating.map(value_to_color)
 
-    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/4*3,8.5/4*3))
+    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/5*4,8.5/5*4))
     for i in range(0,len(player_dressed.index)):
         temp_d = player_dressed.iloc[i]
         temp_m = player_minutes.iloc[i]
