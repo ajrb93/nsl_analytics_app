@@ -1093,9 +1093,14 @@ def plot_player_heatmaps(df,selected_team,selected_season):
     
     names_index = df_total.reset_index(drop=True)
     names_index['pos2'] = names_index.Pos.shift(periods=1)
-    names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2,3]
-    names_index = np.insert(np.insert(np.insert(np.insert(
-        df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],''),names_index[3],'')
+    try:
+        names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2,3]
+        names_index = np.insert(np.insert(np.insert(np.insert(
+            df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],''),names_index[3],'')
+    except:
+        names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2]
+        names_index = np.insert(np.insert(np.insert(
+            df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],'')
     
     x_labels = df.sort_values('Date').drop_duplicates('Date').label.values
     player_minutes = df.pivot(index='Date',columns='Name',values='MIN').T.reindex(names_index)
