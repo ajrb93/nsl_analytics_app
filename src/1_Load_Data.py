@@ -43,6 +43,7 @@ fixtures.to_csv('data/Matches.csv')
 
 player_stats = pd.read_csv('data/PlayerStats.txt')
 player_stats.Date = pd.to_datetime(player_stats.Date, unit='D', origin='1899-12-30')
+player_stats.P = player_stats.P.fillna('')
 test1 = player_stats.groupby(['Date','Team'])[['MIN','RC']].sum()
 print(test1[test1.MIN != 900].sort_values('MIN'))
 rc_rate = player_stats[player_stats.RC == 1]

@@ -1067,6 +1067,87 @@ def plot_xg_chart(data):
     fig.update_xaxes(rangebreaks=rangebreaks)
     return fig
 
+def create_player_heatmap(df,matches):
+    df['Dressed'] = 1
+    df = df[df.Type == 'Regular'].reset_index(drop=True)
+    df.Date = df.Date.dt.date
+    df = pd.concat((df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','home_team']
+                                            ).drop(columns=['home_team']).rename(columns={'away_team':'Opp','home_score':'GF','away_score':'GA'}),
+                          df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','away_team']
+                                            ).drop(columns=['away_team']).rename(columns={'home_team':'Opp','away_score':'GF','home_score':'GA'})))
+    df = df.merge(pd.pivot_table(df,index='Name',columns='P',values='MIN',aggfunc='sum').fillna(0).idxmax(axis=1).reset_index().rename(columns={0:'Pos'}))
+    df['P_Weight'] = df.P.replace({'G':1,'D':2,'M':3,'F':4,'':0}).astype('int') * df.MIN
+    return df
+
+def plot_player_heatmaps(df,selected_team,selected_season):
+    df = df[(df.Team == selected_team) & (pd.to_datetime(df.date).dt.year == selected_season)].reset_index(drop=True).sort_values('Date')
+    df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum','P_Weight':'sum'}).reset_index()
+    df_total['P'] = df_total.P_Weight / df_total.MIN
+
+    df['label'] = (df.GF.astype('int').astype('str') + '-' + df.GA.astype('int').astype('str') + '\nvs\n' + df.Opp.str[0:3].str.upper())
+    df.loc[df.MIN == 0,'Rtg'] = np.nan
+    
+    df_total['90s'] = np.round(df_total.MIN / 90,1)
+    df_total.Pos = df_total.Pos.replace({'':4,'G':0,'D':1,'M':2,'F':3})
+    df_total = df_total.sort_values(['Pos','90s','Dressed'],ascending=[True,False,False])
+    
+    names_index = df_total.reset_index(drop=True)
+    names_index['pos2'] = names_index.Pos.shift(periods=1)
+    names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2,3]
+    names_index = np.insert(np.insert(np.insert(np.insert(
+        df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],''),names_index[3],'')
+    
+    x_labels = df.sort_values('Date').drop_duplicates('Date').label.values
+    player_minutes = df.pivot(index='Date',columns='Name',values='MIN').T.reindex(names_index)
+    player_dressed = df.pivot(index='Date',columns='Name',values='Dressed').T.reindex(names_index)
+    player_rating = df.pivot(index='Date',columns='Name',values='Rtg').T.reindex(names_index)
+    player_fulls = df_total[['Name','90s','Rtg']].set_index('Name').reindex(names_index)
+
+    norm = plt.Normalize(-2,2)
+    cmap = plt.cm.RdYlGn
+    player_colors = player_rating.map(lambda x: mcolors.to_hex(cmap(norm(x))))
+    def value_to_color(x):
+        if x < -0.3:
+            return '#FFFFFF'  # white
+        elif x <= 0.3:
+            return '#000000'  # black
+        else:
+            return '#FFFFFF'  # white
+    player_colorstext = player_rating.map(value_to_color)
+
+    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18,9))
+    for i in range(0,len(player_dressed.index)):
+        temp_d = player_dressed.iloc[i]
+        temp_m = player_minutes.iloc[i]
+        temp_r = player_rating.iloc[i]
+        temp_f = player_fulls.iloc[i]
+        temp_c = player_colors.iloc[i]
+        temp_t = player_colorstext.iloc[i]
+    
+        ax[i].bar(temp_d.index.astype('str'),90*temp_d.values,color='gainsboro')
+        ax[i].bar(temp_m.index.astype('str'),temp_m.fillna(0).values,color = temp_c)#color=team_colors[team][0])
+        ax[i].set_ylim(0,90)
+        ax[i].set_xlim(-0.5,len(player_minutes.columns)-0.5)
+        ax[i].set_xticks([])
+        ax[i].set_yticks([])
+        for j in range(0,len(temp_m)):
+            if not np.isnan(temp_m.iloc[j]):
+                ax[i].annotate((temp_r.iloc[j].round(1).astype('str').replace('nan','')),(j,45),fontsize=10,va='center',ha='center',color=temp_t.iloc[j])
+        if temp_m.name == '':
+            ax[i].axis('Off')
+        if temp_m.name != '':
+            ax[i].text(-1.3,i-1,temp_m.name,rotation=0,va='bottom',ha='right',fontsize=10)
+            ax[i].text(-0.55,i-1,'('+str(temp_f.Rtg.round(1))+')',rotation=0,va='bottom', ha='right', fontsize=10)
+    
+    for i in range(len(player_dressed.index),len(player_dressed.index)+2):
+        ax[i].axis('Off')
+    
+    for k in range(0,len(player_minutes.columns)):
+        ax[i-1].set_xlim(-0.5,len(player_minutes.columns)-0.5)
+        ax[i-1].set_ylim(0,1)
+        ax[i-1].text(k,-0.5,x_labels[k],va='center',ha='center',fontsize=10)
+    return fig
+
 standings = pd.read_feather('data/standings.ftr').reset_index()
 color_map = pd.DataFrame([['AFC Toronto','#4B0B1A','#FF2929'],
                           ['Calgary Wild FC','#3B1E5E','#C1272D'],
@@ -1171,3 +1252,11 @@ with tab_team:
             schedule_results = pd.concat(schedule_results)
             fig = plot_xg_chart(schedule_results.sort_values('Date').reset_index(drop=True))
             st.plotly_chart(fig, use_container_width=True)
+        player_heatmaps = create_player_heatmap(player_stats,matches)
+        fig = plot_player_heatmaps(player_heatmaps,selected_team,selected_season)
+        buf = BytesIO()
+        fig.savefig(buf, format='png', bbox_inches='tight', dpi=150)
+        buf.seek(0)
+        img_base64 = base64.b64encode(buf.read()).decode()
+        st.markdown(f'<img src="data:image/png;base64,{img_base64}" style="width:100%;">', unsafe_allow_html=True)
+        plt.close(fig)
