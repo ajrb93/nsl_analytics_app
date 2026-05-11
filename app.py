@@ -928,7 +928,7 @@ def plot_spi_chart(data):
     fig.add_hline(y=0.5, line_dash='dash', line_color='gray', line_width=2)
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
-    fig.update_layout(height=150, margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.25, 0.75], tickvals=[i/10 for i in range(3, 8)],tickformat='.0%'),
+    fig.update_layout(height=120, margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0.25, 0.75], tickvals=[i/10 for i in range(3, 8)],tickformat='.0%'),
                       plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
     season_start = '04-01'
     season_end = '11-01'
@@ -1009,7 +1009,7 @@ def plot_offdef_chart(data):
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
     
-    fig.update_layout(height=150,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0, 2], tickvals=[i/10 for i in np.arange(0,21,5)], tickformat='.2f'),
+    fig.update_layout(height=120,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[0, 2], tickvals=[i/10 for i in np.arange(0,21,5)], tickformat='.2f'),
                       plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)')
     season_start = '04-01'
     season_end = '11-01'
@@ -1055,7 +1055,7 @@ def plot_xg_chart(data):
 
     for year in pd.to_datetime(data.Date).dt.year.unique():
         fig.add_vline(x=pd.Timestamp(f'{year}-01-01').timestamp()*1000,line_dash='dot', line_color='black', line_width=2)
-    fig.update_layout(height=150,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[-4,4], tickvals=list(range(-4, 5)), tickformat='.0f'),
+    fig.update_layout(height=120,margin=dict(l=0, r=0, t=0, b=0),yaxis=dict(range=[-4,4], tickvals=list(range(-4, 5)), tickformat='.0f'),
                       plot_bgcolor='rgba(0,0,0,0)',paper_bgcolor='rgba(0,0,0,0)')
     season_start = '02-20'
     season_end = '11-09'
@@ -1083,7 +1083,7 @@ def create_player_heatmap(df,matches):
     return df
 
 def plot_player_heatmaps(df,selected_team,selected_season):
-    fig, ax = plt.subplots(1,1,figsize=(18*4/5,8.5*4/5))
+    fig, ax = plt.subplots(1,1,figsize=(18*4/5,9*4/5))
     df = df[(df.Team == selected_team) & (pd.to_datetime(df.date).dt.year == selected_season)].reset_index(drop=True).sort_values('Date')
     df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum','P_Weight':'sum'}).reset_index()
     df_total['P'] = df_total.P_Weight / df_total.MIN
