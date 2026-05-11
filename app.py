@@ -1070,6 +1070,8 @@ def plot_xg_chart(data):
 def create_player_heatmap(df,matches):
     df['Dressed'] = 1
     df = df[df.Type == 'Regular'].reset_index(drop=True)
+    df.loc[df.Out > 90,'In'] = df.In - df.MIN
+    df.loc[df.Out > 90,'Out'] = df.In + df.MIN
     df['Season'] = df.Date.dt.year
     df.Date = df.Date.dt.date
     df = pd.concat((df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','home_team']
@@ -1081,224 +1083,109 @@ def create_player_heatmap(df,matches):
     return df
 
 def plot_player_heatmaps(df,selected_team,selected_season):
+    fig, ax = plt.subplots(1,1,figsize=(18*4/5,9*4/5))
     df = df[(df.Team == selected_team) & (pd.to_datetime(df.date).dt.year == selected_season)].reset_index(drop=True).sort_values('Date')
     df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum','P_Weight':'sum'}).reset_index()
     df_total['P'] = df_total.P_Weight / df_total.MIN
 
-    df['label'] = (df.GF.astype('int').astype('str') + '-' + df.GA.astype('int').astype('str') + '\nvs\n' + df.Opp.str[0:3].str.upper())
+    df['label1'] = (df.GF.astype('int').astype('str') + '-' + df.GA.astype('int').astype('str'))
+    df['label2'] =  df.Opp.str[0:3].str.upper()
+    df['Result'] = (df.GF > df.GA).astype('int') * 2 + (df.GF == df.GA)
     df.loc[df.MIN == 0,'Rtg'] = np.nan
-    
-    df_total['90s'] = np.round(df_total.MIN / 90,1)
+        
+    df_total['90s'] = np.round(df_total.MIN / 90,0)
     df_total.Pos = df_total.Pos.replace({'':4,'G':0,'D':1,'M':2,'F':3})
-    df_total = df_total.sort_values(['Pos','90s','Dressed'],ascending=[True,False,False])
-    
-    names_index = df_total.reset_index(drop=True)
-    names_index['pos2'] = names_index.Pos.shift(periods=1)
-    try:
-        names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2,3]
-        names_index = np.insert(np.insert(np.insert(np.insert(
-            df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],''),names_index[3],'')
-    except:
-        names_index = names_index[names_index.Pos != names_index.pos2].iloc[1:].index + [0,1,2]
-        names_index = np.insert(np.insert(np.insert(
-            df_total.Name.values,names_index[0],''),names_index[1],''),names_index[2],'')
-    
-    x_labels = df.sort_values('Date').drop_duplicates('Date').label.values
-    player_minutes = df.pivot(index='Date',columns='Name',values='MIN').T.reindex(names_index)
-    player_dressed = df.pivot(index='Date',columns='Name',values='Dressed').T.reindex(names_index)
-    player_rating = df.pivot(index='Date',columns='Name',values='Rtg').T.reindex(names_index)
-    player_fulls = df_total[['Name','90s','Rtg']].set_index('Name').reindex(names_index)
+    df_total = df_total.sort_values(['Pos','Rtg','90s'],ascending=[True,False,False])
 
-    norm = plt.Normalize(-2,2)
-    cmap = plt.cm.RdYlGn
-    player_colors = player_rating.map(lambda x: mcolors.to_hex(cmap(norm(x))))
-    def value_to_color(x):
-        if x < -0.6:
-            return '#FFFFFF'  # white
-        elif x <= 0.6:
-            return '#000000'  # black
-        else:
-            return '#FFFFFF'  # white
-    player_colorstext = player_rating.map(value_to_color)
-
-    fig, ax = plt.subplots(len(player_dressed.index)+2,1,figsize=(18/5*4,9/5*4))
-    for i in range(0,len(player_dressed.index)):
-        temp_d = player_dressed.iloc[i]
-        temp_m = player_minutes.iloc[i]
-        temp_r = player_rating.iloc[i]
-        temp_f = player_fulls.iloc[i]
-        temp_c = player_colors.iloc[i]
-        temp_t = player_colorstext.iloc[i]
-    
-        ax[i].bar(temp_d.index.astype('str'),90*temp_d.values,color='gainsboro')
-        ax[i].bar(temp_m.index.astype('str'),temp_m.fillna(0).values,color = temp_c)#color=team_colors[team][0])
-        ax[i].set_ylim(0,90)
-        ax[i].set_xlim(-0.5,len(player_minutes.columns)-0.5)
-        ax[i].set_xticks([])
-        ax[i].set_yticks([])
-        for j in range(0,len(temp_m)):
-            if not np.isnan(temp_m.iloc[j]):
-                ax[i].annotate((temp_r.iloc[j].round(1).astype('str').replace('nan','')),(j,45),fontsize=10,va='center',ha='center',color=temp_t.iloc[j])
-        if temp_m.name == '':
-            ax[i].axis('Off')
-        if temp_m.name != '':
-            ax[i].text(-1.3,i-1,temp_m.name,rotation=0,va='bottom',ha='right',fontsize=10)
-            ax[i].text(-0.55,i-1,'('+str(temp_f.Rtg.round(1))+')',rotation=0,va='bottom', ha='right', fontsize=10)
-    
-    for i in range(len(player_dressed.index),len(player_dressed.index)+2):
-        ax[i].axis('Off')
-    
-    for k in range(0,len(player_minutes.columns)):
-        ax[i-1].set_xlim(-0.5,len(player_minutes.columns)-0.5)
-        ax[i-1].set_ylim(0,1)
-        ax[i-1].text(k,-0.5,x_labels[k],va='center',ha='center',fontsize=10)
-    return fig
-
-def plot_player_heatmaps(df,selected_team,selected_season):
-    df = df[(df.Team == selected_team) & (pd.to_datetime(df.date).dt.year == selected_season)].reset_index(drop=True).sort_values('Date')
-    df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum','P_Weight':'sum'}).reset_index()
-    df_total['P'] = df_total.P_Weight / df_total.MIN
-
-    df['label'] = (df.GF.astype('int').astype('str') + '-' + df.GA.astype('int').astype('str') + '\nvs\n' + df.Opp.str[0:3].str.upper())
-    df.loc[df.MIN == 0,'Rtg'] = np.nan
-    
-    df_total['90s'] = np.round(df_total.MIN / 90,1)
-    df_total.Pos = df_total.Pos.replace({'':5,'G':0,'D':1,'M':2,'F':3})
-    df_total = df_total.sort_values(['Pos','90s','Dressed'],ascending=[True,False,False])
-    
     names_index = df_total.reset_index(drop=True)
     names_index['pos2'] = names_index.Pos.shift(periods=1)
     position_breaks = names_index[names_index.Pos != names_index.pos2].iloc[1:].index.tolist()
-    if len(position_breaks) >= 5:
-        # All positions present including unknown
-        names_index = np.insert(np.insert(np.insert(np.insert(np.insert(
-            df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
-            position_breaks[2], ''), position_breaks[3], ''), position_breaks[4], '')
-        pos_labels = ['Goalkeepers', 'Defenders', 'Midfielders', 'Forwards', 'Unknown']
-    elif len(position_breaks) == 4:
-        names_index = np.insert(np.insert(np.insert(np.insert(
-            df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
-            position_breaks[2], ''), position_breaks[3], '')
-        # Determine which positions are present
-        positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
-        pos_labels = [pos_map[p] for p in positions_present]
-    elif len(position_breaks) == 3:
-        names_index = np.insert(np.insert(np.insert(
-            df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
-            position_breaks[2], '')
-        positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
-        pos_labels = [pos_map[p] for p in positions_present]
-    else:
-        # Handle fewer position breaks
-        for i, idx in enumerate(position_breaks):
-            names_index = np.insert(df_total.Name.values, idx + i, '')
-        positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
-        pos_labels = [pos_map[p] for p in positions_present]
-        
-    x_labels = df.sort_values('Date').drop_duplicates('Date').label.values
-    player_minutes = df.pivot(index='Date', columns='Name', values='MIN').T.reindex(names_index)
-    player_dressed = df.pivot(index='Date', columns='Name', values='Dressed').T.reindex(names_index)
-    player_rating = df.pivot(index='Date', columns='Name', values='Rtg').T.reindex(names_index)
-    player_fulls = df_total[['Name','90s','Rtg']].set_index('Name').reindex(names_index)
+    position_breaks = np.insert(position_breaks,0,0)
+    names_index = names_index.Name.values
+    positions_present = sorted(df_total.Pos.unique())
+    pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: 'Unknown'}
+    pos_labels = [pos_map[p] for p in positions_present]
 
-    norm = plt.Normalize(-2,2)
+    for i, idx in enumerate(position_breaks):
+        position_breaks[i] += i
+    for i, idx in enumerate(position_breaks):
+        names_index = np.insert(names_index,idx,pos_labels[i])
+    names_index = np.insert(names_index,len(names_index),'')
+    columns_index1 = df[['Date','label1']].drop_duplicates().label1.values
+    columns_index2 = df[['Date','label2']].drop_duplicates().label2.values
+    results_index = df[['Date','Result']].drop_duplicates().Result.values
+    team_index = df[['Date','Opp']].drop_duplicates().Opp.values
+    dressed_index = df.pivot(index='Name',columns='Date',values='Dressed').reindex(names_index)
+    dressed_index = dressed_index.reindex(index=dressed_index.index[::-1])
+    minutes_start_index = df.pivot(index='Name',columns='Date',values='In').reindex(names_index)
+    minutes_start_index = minutes_start_index.reindex(index=minutes_start_index.index[::-1]).fillna(0)
+    minutes_end_index = df.pivot(index='Name',columns='Date',values='MIN').reindex(names_index)
+    minutes_end_index = minutes_end_index.reindex(index=minutes_end_index.index[::-1])
+    rtg_index = df.pivot(index='Name',columns='Date',values='Rtg').reindex(names_index)
+    rtg_index = rtg_index.reindex(index=rtg_index.index[::-1])
+
+    n_games = df.Date.nunique()
+    names = 0.15
+    header = 0.95
+    players = len(df_total) + 5
+
+    ax.set_xlim(0,1)
+    ax.set_ylim(0,1)
+    ax.axis(False)
+
     cmap = plt.cm.RdYlGn
-    player_colors = player_rating.map(lambda x: mcolors.to_hex(cmap(norm(x))))
-    def value_to_color(x):
-        if x < -0.6:
-            return '#FFFFFF'  # white
-        elif x <= 0.6:
-            return '#000000'  # black
-        else:
-            return '#FFFFFF'  # white
-    player_colorstext = player_rating.map(value_to_color)
+    norm = mcolors.Normalize(vmin=-10, vmax=10)
+    norm2 = plt.Normalize(-2,2)
 
-    width_per_game = 0.55
-    num_games = 25
-    left_margin = 3.75  # Space for badges and names
-    right_margin = 0.5
-    fig_width = left_margin + (num_games * width_per_game) + right_margin
-    
-    fig, ax = plt.subplots(len(player_dressed.index),1,figsize=(fig_width,fig_width/2))
-    if not isinstance(ax, np.ndarray):
-        ax = [ax]
-    
-    # Track position separators
-    separator_idx = 0
-    
-    for i in range(0, len(player_dressed.index)):
-        temp_d = player_dressed.iloc[i]
-        temp_m = player_minutes.iloc[i]
-        temp_r = player_rating.iloc[i]
-        temp_f = player_fulls.iloc[i]
-        temp_c = player_colors.iloc[i]
-        temp_t = player_colorstext.iloc[i]
-    
-        # Set up axes
-        ax[i].set_ylim(0, 90)
-        ax[i].set_xlim(-0.5, len(player_minutes.columns) - 0.5)
-        ax[i].set_xticks([])
-        ax[i].set_yticks([])
-        ax[i].spines['top'].set_visible(False)
-        ax[i].spines['right'].set_visible(False)
-        ax[i].spines['bottom'].set_visible(False)
-        ax[i].spines['left'].set_visible(False)
+    j = 0
+    for i in range(0,n_games+1):
+        ax.axvline(names+j,c='grey')
+        try:
+            box_color = ('red' if results_index[i] == 0 else 'yellow' if results_index[i] == 1 else 'green')
+            ax.annotate(columns_index1[i],(names+j+(1-names)/n_games/2,(1-header)/4*3+header),ha='center',va='bottom',
+                        bbox=dict(boxstyle="round,pad=0.1",facecolor=box_color,edgecolor='black',alpha=0.5))
+            box_color = team_colors[team_index[i]]
+            ax.annotate(columns_index2[i],(names+j+(1-names)/n_games/2,(1-header)/4*0.5+header),ha='center',va='bottom',color=box_color['home_secondary'],
+                        bbox=dict(boxstyle="round,pad=0.1",facecolor=box_color['home_primary'],edgecolor='black',alpha=1),fontweight='bold')
+        except:
+            pass
+        j += (1-names)/n_games
         
-        if temp_m.name == '':
-            # This is a position separator row
-            ax[i].axis('Off')
-            if separator_idx < len(pos_labels):
-                # Add position label
-                ax[i].text(-3.8, 45, pos_labels[separator_idx], fontsize=9, va='center', ha='left', color='#666', style='italic', weight='normal', alpha=0.8)
-                separator_idx += 1
+    k = 0
+    for i in range(0,players+1):
+        name = names_index[(players-1)-i]
+        if name not in pos_map.values():
+            try:
+                box_color = cmap(norm(df_total[df_total.Name == name]['Rtg'].values[0]))
+                ax.annotate(name.split(' ')[0][0] + '. ' + name.split(' ')[-1],(0.015,k+0.005),va='bottom')
+                ax.axhline(k,ls=':',color='grey')
+                ax.annotate(str(int(df_total[df_total.Name == name]['90s'].values[0]))+', '+str(np.round(df_total[df_total.Name == name]['Rtg'].values[0],1)),
+                            (names-0.008,k+0.005),va='bottom',fontstyle='italic',ha='right',
+                            bbox=dict(boxstyle="round,pad=0.1",facecolor=box_color,edgecolor='black',alpha=0.5))
+            except:
+                pass
         else:
-            # Draw game bars
-            for j in range(0, len(temp_m)):
-                # Always draw the outline (dressed indicator)
-                outline = mpatches.FancyBboxPatch((j - 0.45, 10), 0.9, 70,boxstyle="round,pad=0.05",edgecolor='#d0d0d0',facecolor='none',linewidth=1.2,transform=ax[i].transData)
-                ax[i].add_patch(outline)
-                
-                # If they played, fill the bar proportionally
-                if not np.isnan(temp_m.iloc[j]) and temp_m.iloc[j] > 0:
-                    minutes = temp_m.iloc[j]
-                    bar_height = (minutes / 90) * 70
-                    filled = mpatches.FancyBboxPatch((j - 0.45, 10), 0.9, bar_height,boxstyle="round,pad=0.05",edgecolor='none',facecolor=temp_c.iloc[j],transform=ax[i].transData)
-                    ax[i].add_patch(filled)
-                    
-                    # Add rating text
-                    rating_text = temp_r.iloc[j].round(1).astype('str').replace('nan', '')
-                    if rating_text:
-                        ax[i].annotate(rating_text,(j, 45),fontsize=12,va='center',ha='center',color=temp_t.iloc[j],weight='bold')
+            ax.annotate(name,(0.005,k+0.005),va='bottom',fontweight='bold',color=team_colors[selected_team]['home_secondary'])
+            ax.annotate('(90s,Rtg)',(0.1,k+0.005),va='bottom',fontstyle='italic',fontweight='bold',color=team_colors[selected_team]['home_secondary'])
+            ax.add_patch(plt.Rectangle((0,k),1,(header)/players,color=team_colors[selected_team]['home_primary']))
             
-            # Draw player name
-            ax[i].text(-2.2, 45,temp_m.name,rotation=0,va='center',ha='right',fontsize=13,weight='medium')
-            
-            # Draw outlined badge for overall rating
-            badge_x = -1.35
-            badge_y = 34
-            badge_width = 22
-            badge_height = 22
-            
-            badge = mpatches.FancyBboxPatch((badge_x, badge_y), badge_width, badge_height,boxstyle="round,pad=0.5",edgecolor='#888',facecolor='none',linewidth=1.8,
-                transform=ax[i].transData,clip_on=False)
-            ax[i].add_patch(badge)
-            
-            # Add overall rating text in badge
-            overall_rating = str(temp_f.Rtg.round(1))
-            ax[i].text(badge_x + badge_width/2, badge_y + badge_height/2,overall_rating,va='center',ha='center',fontsize=11,weight='medium',transform=ax[i].transData,clip_on=False)
-    
-    # Add game labels at the bottom
-    bottom_ax_idx = len(ax) - 1
-    for k in range(0, len(player_minutes.columns)):
-        ax[bottom_ax_idx].text(k, -15,x_labels[k],va='top',ha='center',fontsize=9,weight='normal')
-    
-    # Adjust layout
-   #plt.tight_layout()
-    plt.subplots_adjust(hspace=0.02, left=left_margin/fig_width, right=1 - right_margin/fig_width,top=0.98,bottom=0.05)
-    
+        j = 0
+        for l in range(0,n_games+1):
+            if l != (n_games):
+                dressed_val = dressed_index.iloc[i].values[l]
+                minutes_start_val = minutes_start_index.iloc[i].values[l]
+                minutes_val = minutes_end_index.iloc[i].values[l]
+                rtg_val = rtg_index.iloc[i].values[l]
+                box_color = cmap(norm2(rtg_val))
+                if dressed_val == 1:
+                    ax.add_patch(plt.Rectangle((j+names,k),(1-names)/n_games,-(header)/players,color='#d9d9d9'))
+                    ax.add_patch(plt.Rectangle((j+names+(1-names)/n_games*minutes_start_val/90,k),(1-names)/n_games*minutes_val/90,-(header)/players,color=box_color,
+                                ec='#444444',lw=0.5))
+                    if minutes_val > 0:
+                        ax.annotate(np.round(rtg_val,1),(j+names+(1-names)/n_games/2,k-(header)/players/2),ha='center',va='center')
+            j += (1-names)/n_games
+        k += (header)/players    
+    plt.tight_layout()
     return fig
 
 standings = pd.read_feather('data/standings.ftr').reset_index()
