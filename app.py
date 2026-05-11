@@ -1257,7 +1257,7 @@ with tab_standings:
 with tab_team:
     col1, col2 = st.columns([2,3.5])
     with col1:
-        subcol1, subcol2, subcol3 = st.columns([1.5,1.5,1.5])
+        subcol1, subcol2, subcol3 = st.columns([2.5,1,1])
         with subcol1:
             teams = sorted(standings.F_team.unique())
             selected_team = st.selectbox('Select Team',options=teams,key='team_picker',label_visibility='collapsed')
