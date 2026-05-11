@@ -1174,28 +1174,28 @@ def plot_player_heatmaps(df,selected_team,selected_season):
         names_index = np.insert(np.insert(np.insert(np.insert(np.insert(
             df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
             position_breaks[2], ''), position_breaks[3], ''), position_breaks[4], '')
-        pos_labels = ['Goalkeepers', 'Defenders', 'Midfielders', 'Forwards', 'Unknown Position']
+        pos_labels = ['Goalkeepers', 'Defenders', 'Midfielders', 'Forwards', 'Unknown']
     elif len(position_breaks) == 4:
         names_index = np.insert(np.insert(np.insert(np.insert(
             df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
             position_breaks[2], ''), position_breaks[3], '')
         # Determine which positions are present
         positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 5: 'Unknown Position'}
+        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
         pos_labels = [pos_map[p] for p in positions_present]
     elif len(position_breaks) == 3:
         names_index = np.insert(np.insert(np.insert(
             df_total.Name.values, position_breaks[0], ''), position_breaks[1], ''), 
             position_breaks[2], '')
         positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 5: 'Unknown Position'}
+        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
         pos_labels = [pos_map[p] for p in positions_present]
     else:
         # Handle fewer position breaks
         for i, idx in enumerate(position_breaks):
             names_index = np.insert(df_total.Name.values, idx + i, '')
         positions_present = sorted(df_total.Pos.unique())
-        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 5: 'Unknown Position'}
+        pos_map = {0: 'Goalkeepers', 1: 'Defenders', 2: 'Midfielders', 3: 'Forwards', 4: ''}
         pos_labels = [pos_map[p] for p in positions_present]
         
     x_labels = df.sort_values('Date').drop_duplicates('Date').label.values

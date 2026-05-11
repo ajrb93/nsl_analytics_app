@@ -102,5 +102,5 @@ player_stats['xGA'] = (player_stats.GA - player_stats.groupby(['Date','Team']).G
 player_stats.xGA *= -1
 
 player_stats['xGD'] = player_stats.xGF + player_stats.xGA
-player_stats = player_stats[['Date','Type','Team','Player','MIN','xGD','P']].rename(columns={'Player':'Name','xGD':'Rtg'})
+player_stats = player_stats[['Date','Type','Team','Player','MIN','xGD','P','In','Out']].rename(columns={'Player':'Name','xGD':'Rtg'})
 pd.concat((player_stats,goalie_stats)).to_feather('data/PlayerStats.ftr')
