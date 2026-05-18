@@ -181,3 +181,5 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46155,Regular,Halifax Tides FC,Rylee Foster,90,2,5,0,0,48,1,1,8,6,0
 46158,Regular,Montreal Roses FC,Anna Karpenko,90,2,3,0,0,28,2,0,6,5,0
 46158,Regular,Calgary Wild FC,Katelin Talbert,90,2,6,0,1,49,1,0,10,4,0
+46160,Regular,Halifax Tides FC,Jessica Wulf,90,1,2,0,1,40,1,0,13,4,0
+46160,Regular,Vancouver Rise FC,Rylee Foster,90,2,1,0,1,46,0,0,6,1,0
