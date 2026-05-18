@@ -80,10 +80,10 @@ def simulate_season_vectorized(schedule_home_idx, schedule_away_idx, initial_rat
         away_off_perf = np.log(away_perf / temp_away_xg)
         home_def_perf = away_off_perf * -1 
         away_def_perf = home_off_perf * -1
-        ratings[home_idx, 0] = home_off + update_rate * home_off_perf
-        ratings[home_idx, 1] = home_def - update_rate * home_def_perf
-        ratings[away_idx, 0] = away_off + update_rate * away_off_perf
-        ratings[away_idx, 1] = away_def - update_rate * away_def_perf
+        ratings[home_idx, 0] = np.exp(np.log(home_off) + update_rate * home_off_perf)
+        ratings[home_idx, 1] = np.exp(np.log(home_def) - update_rate * home_def_perf)
+        ratings[away_idx, 0] = np.exp(np.log(away_off) + update_rate * away_off_perf)
+        ratings[away_idx, 1] = np.exp(np.log(away_def) - update_rate * away_def_perf)
     
     return home_goals, away_goals
 

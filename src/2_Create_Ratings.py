@@ -66,7 +66,7 @@ def calculate_parameters(fixtures):
     hf = {}
     tg = {}
     for date in matches.dropna(subset='home_score').groupby('season').date.last().values:
-        temp = matches[matches.date <= date].tail(70)
+        temp = matches[matches.date <= date].tail(75)
         season = temp.season.tail(1).values[0]
         tg[season] = temp.total_goals.mean()
         hf[season] = temp.home_field.mean()
@@ -146,11 +146,11 @@ def update_ratings(row,team_ratings,season,total_goals,home_field,update_rate):
     temp_away_off_perf = np.log(temp_away_perf / temp_away_exp)
     temp_home_def_perf = temp_away_off_perf * -1    
 
-    temp_home_rating_adj = [temp_home_rating[0] + update_rate * temp_home_off_perf,
-                            temp_home_rating[1] - update_rate * temp_home_def_perf]
+    temp_home_rating_adj = [np.exp(np.log(temp_home_rating[0]) + update_rate * temp_home_off_perf),
+                            np.exp(np.log(temp_home_rating[1]) - update_rate * temp_home_def_perf)]
     temp_home_rating_adj.append(team_rating(temp_home_rating_adj[0]*total_goals/2,temp_home_rating_adj[1]*total_goals/2))
-    temp_away_rating_adj = [temp_away_rating[0] + update_rate * temp_away_off_perf,
-                            temp_away_rating[1] - update_rate * temp_away_def_perf]
+    temp_away_rating_adj = [np.exp(np.log(temp_away_rating[0]) + update_rate * temp_away_off_perf),
+                            np.exp(np.log(temp_away_rating[1]) - update_rate * temp_away_def_perf)]
     temp_away_rating_adj.append(team_rating(temp_away_rating_adj[0]*total_goals/2,temp_away_rating_adj[1]*total_goals/2))
 
     team_ratings[temp_home][season][temp_date] = temp_home_rating_adj
