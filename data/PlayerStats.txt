@@ -3354,3 +3354,74 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46160,Regular,Vancouver Rise FC,Anaïs Oularbi,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46160,Regular,Vancouver Rise FC,Nikki Stanton,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46160,Regular,Vancouver Rise FC,Chloe Taylor,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Hyo-Joo Choo,90,1,0,2,1,34,57,7,0,2,0,0,0,0,1,2,0,90,D
+46165,Regular,Ottawa Rapid FC,Jyllissa Harris,90,0,0,0,0,67,91,1,0,1,0,0,0,0,1,2,0,90,D
+46165,Regular,Ottawa Rapid FC,Olivia Scott,90,0,0,0,0,73,93,0,0,4,0,0,0,0,1,2,0,90,D
+46165,Regular,Ottawa Rapid FC,Kayla Adamek,90,0,0,1,0,43,75,2,0,1,1,0,0,0,1,2,0,90,D
+46165,Regular,Ottawa Rapid FC,Min-Young Jung,90,0,0,1,0,63,76,0,0,3,2,0,0,0,1,2,0,90,M
+46165,Regular,Ottawa Rapid FC,Keera Melenhorst,90,0,0,2,0,47,85,0,0,5,1,0,0,0,1,2,0,90,M
+46165,Regular,Ottawa Rapid FC,Delaney Pridham,90,0,1,3,1,19,36,0,0,0,0,0,0,0,1,2,0,90,F
+46165,Regular,Ottawa Rapid FC,Sadie Waite,84,0,0,1,0,24,37,2,1,1,2,0,0,0,1,2,0,84,F
+46165,Regular,Ottawa Rapid FC,Melanie Forbes,67,0,0,1,0,5,24,7,4,1,0,0,0,0,1,2,0,67,F
+46165,Regular,Ottawa Rapid FC,Florence Belzile,45,0,0,0,0,13,25,3,0,3,0,0,0,0,0,2,0,45,F
+46165,Regular,Ottawa Rapid FC,Naomi Lofthouse,45,0,0,1,0,20,34,0,0,0,0,0,0,0,1,0,45,90,F
+46165,Regular,Ottawa Rapid FC,Nicola Golen,23,0,0,1,0,12,27,2,0,1,0,0,0,0,0,0,67,90,F
+46165,Regular,Ottawa Rapid FC,Jazmine Wilkinson,6,0,0,1,1,3,7,0,0,0,1,0,0,0,0,0,84,90,F
+46165,Regular,Ottawa Rapid FC,Emily Amano,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Caitlin Crichton,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Mollie Eriksson,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Johanne Fridlund,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Molly Hale,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Ottawa Rapid FC,Ngozi Okobi-Okeoghene,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Montreal Roses FC,Stephanie Hill,90,0,0,0,0,36,77,0,0,2,2,1,0,0,2,1,0,90,D
+46165,Regular,Montreal Roses FC,Anne-Valérie Seto,90,0,0,0,0,49,74,0,0,0,0,0,0,0,2,1,0,90,D
+46165,Regular,Montreal Roses FC,Mégane Sauvé,90,0,0,0,0,22,57,3,0,4,5,0,0,0,2,1,0,90,M
+46165,Regular,Montreal Roses FC,Chloe Minas,90,0,0,2,0,32,55,5,4,3,1,0,0,0,2,1,0,90,M
+46165,Regular,Montreal Roses FC,Elyse Bennett,90,0,0,3,1,31,49,3,0,1,1,0,0,0,2,1,0,90,F
+46165,Regular,Montreal Roses FC,Lisa Pechersky,82,0,1,3,1,28,53,5,0,3,1,0,0,0,2,1,0,82,M
+46165,Regular,Montreal Roses FC,Lucy Cappadona,67,0,0,0,0,47,56,0,0,0,0,0,0,0,2,1,0,67,D
+46165,Regular,Montreal Roses FC,Tanya Boychuk,67,2,0,4,2,12,21,0,0,0,1,0,0,0,2,1,0,67,F
+46165,Regular,Montreal Roses FC,Charlotte Bilbault,55,0,0,1,1,19,25,0,0,0,0,0,0,0,2,0,0,55,M
+46165,Regular,Montreal Roses FC,Evelyn Badu,55,0,0,2,0,12,24,0,0,3,2,0,0,0,2,0,0,55,F
+46165,Regular,Montreal Roses FC,Noémi Paquin,35,0,0,1,1,12,21,1,0,1,0,0,0,0,0,1,55,90,F
+46165,Regular,Montreal Roses FC,Lorie Thibault,35,0,0,0,0,7,17,1,0,0,1,0,0,0,0,1,55,90,M
+46165,Regular,Montreal Roses FC,Chae-Rim Kang,23,0,0,0,0,13,16,0,0,0,0,0,0,0,0,0,67,90,F
+46165,Regular,Montreal Roses FC,Olivia Mbala,23,0,0,0,0,7,13,0,0,2,0,0,0,0,0,0,67,90,D
+46165,Regular,Montreal Roses FC,Hailey Whitaker,8,0,0,0,0,4,12,0,0,2,0,0,0,0,0,0,82,90,M
+46165,Regular,Montreal Roses FC,Han-Bin Choi,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Montreal Roses FC,Anne-Marie Laroche,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Vancouver Rise FC,Sura Yekka,90,0,0,0,0,56,69,0,0,1,0,0,0,0,2,1,0,90,D
+46165,Regular,Vancouver Rise FC,Jessika Cowart,90,0,0,0,0,68,78,0,0,0,0,0,0,0,2,1,0,90,D
+46165,Regular,Vancouver Rise FC,Tori Tumeth,90,0,0,0,0,57,87,1,0,1,2,0,0,0,2,1,0,90,D
+46165,Regular,Vancouver Rise FC,Quinn,90,1,0,1,1,69,84,0,0,4,0,0,0,0,2,1,0,90,M
+46165,Regular,Vancouver Rise FC,Anna Bout,90,0,0,0,0,37,57,2,0,4,2,0,0,0,2,1,0,90,M
+46165,Regular,Vancouver Rise FC,Latifah Abdu,90,1,0,3,1,12,25,0,0,1,2,0,0,0,2,1,0,90,F
+46165,Regular,Vancouver Rise FC,Mia Pante,70,0,0,0,0,38,58,0,0,1,2,0,0,0,2,0,0,70,D
+46165,Regular,Vancouver Rise FC,Jessica De Filippo,70,0,0,1,0,34,46,0,0,3,3,1,0,0,2,0,0,70,F
+46165,Regular,Vancouver Rise FC,Josie Longhurst,58,0,0,0,0,18,27,0,0,1,1,0,0,0,2,0,0,58,M
+46165,Regular,Vancouver Rise FC,Camila Reyes,58,0,0,0,0,33,41,0,0,1,1,0,0,0,2,0,0,58,M
+46165,Regular,Vancouver Rise FC,Mariah Lee,32,0,0,0,0,9,15,1,0,0,1,0,0,0,0,1,58,90,M
+46165,Regular,Vancouver Rise FC,Nikki Stanton,32,0,0,0,0,22,26,1,1,1,3,0,0,0,0,1,58,90,M
+46165,Regular,Vancouver Rise FC,Bridget Mutipula,20,0,0,1,0,8,16,0,0,1,0,0,0,0,0,1,70,90,D
+46165,Regular,Vancouver Rise FC,Jaime Perrault,20,0,0,0,0,6,10,0,0,1,2,0,0,0,0,1,70,90,F
+46165,Regular,Vancouver Rise FC,Morgan McAslan,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Vancouver Rise FC,Yuka Okamoto,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Vancouver Rise FC,Anaïs Oularbi,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,Vancouver Rise FC,Kirstin Tynan,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,AFC Toronto,Sarah Rollins,90,0,0,1,0,40,55,0,0,1,0,0,0,0,1,2,0,90,D
+46165,Regular,AFC Toronto,Victoria Pickett,90,0,0,0,0,50,76,2,2,0,0,0,0,0,1,2,0,90,D
+46165,Regular,AFC Toronto,Colby Barnett,90,0,0,0,0,34,63,6,3,1,1,0,0,0,1,2,0,90,M
+46165,Regular,AFC Toronto,Nikayla Small,90,0,0,2,1,39,63,0,0,4,1,0,0,0,1,2,0,90,M
+46165,Regular,AFC Toronto,Lauren Rowe,90,0,0,0,0,19,39,1,0,0,2,0,0,0,1,2,0,90,F
+46165,Regular,AFC Toronto,Kaylee Hunter,90,0,0,5,1,17,40,0,0,1,2,0,0,0,1,2,0,90,F
+46165,Regular,AFC Toronto,Ashley Cathro,76,0,0,0,0,29,36,0,0,0,0,0,0,0,0,2,0,76,D
+46165,Regular,AFC Toronto,April Lantaigne,65,0,0,3,1,5,21,1,0,2,2,0,0,0,0,2,0,65,M
+46165,Regular,AFC Toronto,Olivia Chisholm,45,0,0,0,0,16,28,0,0,2,0,0,0,0,0,2,0,45,M
+46165,Regular,AFC Toronto,Nyota Katembo,45,0,0,1,0,17,28,0,0,0,0,0,0,0,0,2,0,45,M
+46165,Regular,AFC Toronto,Zoe Burns,45,0,0,0,0,21,38,1,0,0,0,0,0,0,1,0,45,90,M
+46165,Regular,AFC Toronto,Cloey Uddenberg,45,1,0,2,1,23,33,0,0,2,2,0,0,0,1,0,45,90,M
+46165,Regular,AFC Toronto,Kaila Novak,25,0,0,1,0,4,7,0,0,1,1,0,0,0,1,0,65,90,M
+46165,Regular,AFC Toronto,Mia Fontana,14,0,0,1,0,3,5,0,0,0,0,0,0,0,1,0,76,90,D
+46165,Regular,AFC Toronto,Sofia Manner,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,AFC Toronto,Linda Owusu Ansah,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46165,Regular,AFC Toronto,Sarah Stratigakis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

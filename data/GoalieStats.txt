@@ -183,3 +183,7 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46158,Regular,Calgary Wild FC,Katelin Talbert,90,2,6,0,1,49,1,0,10,4,0
 46160,Regular,Vancouver Rise FC,Jessica Wulf,90,1,2,0,1,40,1,0,13,4,0
 46160,Regular,Halifax Tides FC,Rylee Foster,90,2,1,0,1,46,0,0,6,1,0
+46165,Regular,Ottawa Rapid FC,Melissa Dagenais,90,2,4,0,0,39,2,0,12,4,0
+46165,Regular,Montreal Roses FC,Anna Karpenko,90,1,2,0,0,32,0,1,10,4,0
+46165,Regular,Vancouver Rise FC,Jessica Wulf,90,1,3,0,0,44,0,0,12,4,0
+46165,Regular,AFC Toronto,Danielle Krzyzaniak,90,2,0,0,0,24,0,0,4,2,0
