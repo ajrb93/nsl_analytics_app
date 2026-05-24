@@ -1071,14 +1071,12 @@ def create_player_heatmap(df,matches):
                           df.merge(matches[['date','home_score','away_score','home_team','away_team']],left_on=['Date','Team'],right_on=['date','away_team']
                                             ).drop(columns=['away_team']).rename(columns={'home_team':'Opp','away_score':'GF','home_score':'GA'})))
     df = df.merge(pd.pivot_table(df,index=['Name','Season'],columns='P',values='MIN',aggfunc='sum').fillna(0).idxmax(axis=1).reset_index().rename(columns={0:'Pos'}))
-    df['P_Weight'] = df.P.replace({'G':1,'D':2,'M':3,'F':4,'':0}).astype('int') * df.MIN
     return df
 
 def plot_player_heatmaps(df,selected_team,selected_season):
     fig, ax = plt.subplots(1,1,figsize=(18*4/5,9*4/5))
     df = df[(df.Team == selected_team) & (pd.to_datetime(df.date).dt.year == selected_season)].reset_index(drop=True).sort_values('Date')
-    df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum','P_Weight':'sum'}).reset_index()
-    df_total['P'] = df_total.P_Weight / df_total.MIN
+    df_total = df.groupby(['Name','Pos']).agg({'MIN':'sum','Dressed':'sum','Rtg':'sum'}).reset_index()
 
     df['label1'] = (df.GF.astype('int').astype('str') + '-' + df.GA.astype('int').astype('str'))
     df['label2'] =  df.Opp.str[0:3].str.upper()
