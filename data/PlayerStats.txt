@@ -3425,3 +3425,39 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46165,Regular,AFC Toronto,Sofia Manner,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46165,Regular,AFC Toronto,Linda Owusu Ansah,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46165,Regular,AFC Toronto,Sarah Stratigakis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Calgary Wild FC,Caleigh Boeckx,90,0,0,0,0,31,44,0,0,1,1,0,0,0,0,4,0,90,D
+46166,Regular,Calgary Wild FC,Tilly James,90,0,0,0,0,57,66,0,0,2,0,0,0,0,0,4,0,90,D
+46166,Regular,Calgary Wild FC,Talia White,90,0,0,0,0,51,57,0,0,0,1,0,0,0,0,4,0,90,D
+46166,Regular,Calgary Wild FC,Taegan Stewart,90,0,0,1,0,23,30,4,1,1,0,0,0,0,0,4,0,90,M
+46166,Regular,Calgary Wild FC,Jaclyn Sawicki,90,0,0,0,0,49,59,0,0,4,0,0,0,0,0,4,0,90,M
+46166,Regular,Calgary Wild FC,Grace Stordy,84,0,0,1,1,44,78,1,0,0,1,0,0,0,0,4,0,84,D
+46166,Regular,Calgary Wild FC,Jorian Baucom,76,0,0,1,1,9,19,0,0,1,0,0,0,0,0,3,0,76,F
+46166,Regular,Calgary Wild FC,Keelyn Stewart,60,0,0,0,0,20,32,0,0,1,0,0,0,0,0,3,0,60,F
+46166,Regular,Calgary Wild FC,Sonia O'Neill,45,0,0,0,0,18,22,0,0,2,0,0,0,0,0,3,0,45,M
+46166,Regular,Calgary Wild FC,Michelle Romero,45,0,0,0,0,6,11,0,0,1,1,0,0,0,0,3,0,45,F
+46166,Regular,Calgary Wild FC,Torah Betteridge,45,0,0,0,0,15,18,0,1,0,0,0,0,0,0,1,45,90,M
+46166,Regular,Calgary Wild FC,Kahli Johnson,45,0,0,2,1,8,19,0,0,3,2,0,0,0,0,1,45,90,F
+46166,Regular,Calgary Wild FC,Mya Jones,30,0,0,1,0,5,16,0,0,1,0,0,0,0,0,1,60,90,F
+46166,Regular,Calgary Wild FC,Serita Thurton,14,0,0,1,0,3,7,0,0,0,0,0,0,0,0,1,76,90,F
+46166,Regular,Calgary Wild FC,Clara Monck,6,0,0,0,0,4,7,0,0,0,0,0,0,0,0,0,84,90,D
+46166,Regular,Calgary Wild FC,Shaden Al-Asad,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Calgary Wild FC,Kathryn Harvey,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Calgary Wild FC,Sarah Keilty-Dilling,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Calgary Wild FC,Molly Race,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Halifax Tides FC,Sheyenne Allen,90,0,0,1,0,65,95,3,0,0,1,0,0,0,4,0,0,90,D
+46166,Regular,Halifax Tides FC,Addy Weichers,90,0,1,0,0,96,99,0,0,0,2,0,0,0,4,0,0,90,D
+46166,Regular,Halifax Tides FC,Naya Cardoza,90,0,0,0,0,77,83,0,0,0,0,0,0,0,4,0,0,90,D
+46166,Regular,Halifax Tides FC,Julianne Vallerand,90,2,0,5,3,25,59,1,0,2,0,0,0,0,4,0,0,90,D
+46166,Regular,Halifax Tides FC,So-Hyun Cho,90,0,0,0,0,52,65,2,0,3,0,0,0,0,4,0,0,90,M
+46166,Regular,Halifax Tides FC,Sarah Taylor,90,0,2,0,0,38,52,3,2,1,1,0,0,0,4,0,0,90,M
+46166,Regular,Halifax Tides FC,Synne Moe,81,0,0,0,0,46,56,0,0,2,2,0,0,0,4,0,0,81,M
+46166,Regular,Halifax Tides FC,Jordyn Rhodes,75,0,0,2,2,13,26,0,0,2,0,0,0,0,3,0,0,75,F
+46166,Regular,Halifax Tides FC,Sydney Kennedy,75,0,0,0,0,24,33,0,0,0,2,0,0,0,3,0,0,75,F
+46166,Regular,Halifax Tides FC,Saorla Miller,65,2,0,2,2,23,34,1,0,1,0,0,0,0,3,0,0,65,F
+46166,Regular,Halifax Tides FC,Stella Downing,25,0,0,2,2,9,20,0,0,2,0,0,0,0,1,0,65,90,F
+46166,Regular,Halifax Tides FC,Tiffany Cameron,15,0,0,0,0,2,4,1,0,0,0,0,0,0,1,0,75,90,F
+46166,Regular,Halifax Tides FC,Julie Pedersen,15,0,0,0,0,12,14,0,0,0,0,0,0,0,1,0,75,90,F
+46166,Regular,Halifax Tides FC,Karima Lemire,9,0,0,0,0,3,7,0,0,1,2,0,0,0,0,0,81,90,M
+46166,Regular,Halifax Tides FC,Éva Frémaux,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Halifax Tides FC,Annika Leslie,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46166,Regular,Halifax Tides FC,Samantha St. Croix,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
