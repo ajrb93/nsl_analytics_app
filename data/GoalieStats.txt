@@ -189,3 +189,5 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46165,Regular,AFC Toronto,Danielle Krzyzaniak,90,2,0,0,0,24,0,0,4,2,0
 46166,Regular,Calgary Wild FC,Katelin Talbert,90,4,5,0,1,41,1,1,10,2,0
 46166,Regular,Halifax Tides FC,Rylee Foster,90,0,3,1,0,46,1,1,6,1,0
+46171,Regular,Halifax Tides FC,Rylee Foster,90,2,2,0,0,40,1,0,7,4,0
+46171,Regular,Ottawa Rapid FC,Mollie Eriksson,90,1,3,0,1,52,0,0,6,6,0
