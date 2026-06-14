@@ -3570,3 +3570,75 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46173,Regular,AFC Toronto,Linda Owusu Ansah,2,0,0,0,0,3,3,0,0,0,0,0,0,0,1,0,88,90,M
 46173,Regular,AFC Toronto,Nyota Katembo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46173,Regular,AFC Toronto,Danielle Krzyzaniak,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Halifax Tides FC,Sheyenne Allen,90,0,0,0,0,27,63,1,0,4,1,0,0,0,2,0,0,90,D
+46186,Regular,Halifax Tides FC,Annika Leslie,90,0,0,0,0,31,36,0,0,0,1,0,0,0,2,0,0,90,D
+46186,Regular,Halifax Tides FC,Addy Weichers,90,0,0,1,0,42,55,0,0,0,0,0,0,0,2,0,0,90,D
+46186,Regular,Halifax Tides FC,Julianne Vallerand,90,0,0,2,1,30,73,0,0,7,1,0,0,0,2,0,0,90,D
+46186,Regular,Halifax Tides FC,So-Hyun Cho,90,0,0,1,0,38,55,1,0,2,2,0,0,0,2,0,0,90,M
+46186,Regular,Halifax Tides FC,Jordyn Rhodes,90,0,0,5,2,19,55,0,0,3,2,0,0,0,2,0,0,90,F
+46186,Regular,Halifax Tides FC,Saorla Miller,83,1,0,3,1,22,52,0,0,1,1,0,0,0,2,0,0,83,F
+46186,Regular,Halifax Tides FC,Julia Benati,57,1,0,3,2,17,32,4,3,1,1,0,0,0,2,0,0,57,F
+46186,Regular,Halifax Tides FC,Sydney Kennedy,57,0,1,0,0,13,25,1,0,0,1,0,0,0,2,0,0,57,F
+46186,Regular,Halifax Tides FC,Synne Moe,48,0,0,0,0,19,26,0,0,4,4,0,0,0,2,0,0,48,M
+46186,Regular,Halifax Tides FC,Stella Downing,33,0,0,0,0,2,21,1,0,2,0,0,0,0,0,0,57,90,F
+46186,Regular,Halifax Tides FC,Sarah Taylor,33,0,0,0,0,13,19,1,1,0,1,0,0,0,0,0,57,90,F
+46186,Regular,Halifax Tides FC,Tiffany Cameron,7,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,83,90,F
+46186,Regular,Halifax Tides FC,Éva Frémaux,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Halifax Tides FC,Julie Pedersen,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Halifax Tides FC,Karima Lemire,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Halifax Tides FC,Samantha St. Croix,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Halifax Tides FC,Synne Moe,42,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,48,90,M
+46186,Regular,Calgary Wild FC,Torah Betteridge,90,0,0,0,0,52,66,0,0,2,0,0,0,0,0,2,0,90,D
+46186,Regular,Calgary Wild FC,Grace Stordy,90,0,0,1,0,60,91,2,0,3,0,1,0,0,0,2,0,90,D
+46186,Regular,Calgary Wild FC,Sonia O'Neill,90,0,0,0,0,67,86,0,0,5,2,1,0,0,0,2,0,90,M
+46186,Regular,Calgary Wild FC,Kahli Johnson,90,0,0,3,1,9,50,4,0,2,3,0,0,0,0,2,0,90,F
+46186,Regular,Calgary Wild FC,Jorian Baucom,90,0,0,2,0,11,24,0,0,0,2,0,0,0,0,2,0,90,F
+46186,Regular,Calgary Wild FC,Tilly James,76,0,0,1,0,26,49,0,0,1,2,0,0,0,0,2,0,76,D
+46186,Regular,Calgary Wild FC,Taegan Stewart,72,0,0,1,0,16,28,0,0,0,0,0,0,0,0,2,0,72,M
+46186,Regular,Calgary Wild FC,Meikayla Moore,63,0,0,0,0,43,50,0,0,0,0,0,0,0,0,2,0,63,D
+46186,Regular,Calgary Wild FC,Mya Jones,63,0,0,0,0,22,41,2,2,2,1,0,0,0,0,2,0,63,F
+46186,Regular,Calgary Wild FC,Jaclyn Sawicki,45,0,0,0,0,24,32,0,0,1,1,0,0,0,0,2,0,45,M
+46186,Regular,Calgary Wild FC,Jenaya Robertson,45,0,0,3,2,20,25,0,0,0,2,1,0,0,0,0,45,90,M
+46186,Regular,Calgary Wild FC,Serita Thurton,27,0,0,0,0,15,27,5,1,2,0,0,0,0,0,0,63,90,F
+46186,Regular,Calgary Wild FC,Andersen Williams,27,0,0,1,0,18,19,0,0,0,1,0,0,0,0,0,63,90,D
+46186,Regular,Calgary Wild FC,Meggie Dougherty Howard,18,0,0,1,1,6,17,4,1,1,0,0,0,0,0,0,72,90,M
+46186,Regular,Calgary Wild FC,Michelle Romero,14,0,0,1,1,7,16,0,0,1,1,0,0,0,0,0,76,90,D
+46186,Regular,Calgary Wild FC,Kathryn Harvey,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Calgary Wild FC,Molly Race,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Calgary Wild FC,Keelyn Stewart,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Calgary Wild FC,Talia White,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,AFC Toronto,Colby Barnett,90,0,0,0,0,38,58,1,0,2,1,0,0,0,1,1,0,90,D
+46186,Regular,AFC Toronto,Sarah Rollins,90,0,0,0,0,41,53,0,0,2,1,0,0,0,1,1,0,90,D
+46186,Regular,AFC Toronto,Nikayla Small,90,0,0,3,2,39,63,1,1,3,0,0,0,0,1,1,0,90,M
+46186,Regular,AFC Toronto,Zoe Burns,90,0,0,0,0,39,63,6,2,0,0,0,0,0,1,1,0,90,M
+46186,Regular,AFC Toronto,Kaylee Hunter,90,0,0,6,2,23,47,0,0,1,2,1,0,0,1,1,0,90,F
+46186,Regular,AFC Toronto,Jordan Brewster,76,0,0,1,1,35,44,0,0,1,1,1,0,0,1,0,0,76,D
+46186,Regular,AFC Toronto,Lauren Rowe,76,1,0,1,1,18,34,1,0,0,0,0,0,0,1,0,0,76,F
+46186,Regular,AFC Toronto,Sarah Stratigakis,65,0,0,0,0,11,19,0,0,0,1,0,0,0,0,0,0,65,F
+46186,Regular,AFC Toronto,April Lantaigne,62,0,0,0,0,22,45,1,1,1,0,0,0,0,0,0,0,62,M
+46186,Regular,AFC Toronto,Cloey Uddenberg,62,0,0,0,0,23,33,1,0,3,1,0,0,0,0,0,0,62,M
+46186,Regular,AFC Toronto,Ashley Cathro,28,0,0,1,0,16,22,0,0,0,0,0,0,0,1,1,62,90,M
+46186,Regular,AFC Toronto,Olivia Chisholm,28,0,0,0,0,19,22,0,0,0,1,0,0,0,1,1,62,90,M
+46186,Regular,AFC Toronto,Linda Owusu Ansah,25,0,0,0,0,6,14,0,0,4,1,0,0,0,1,1,65,90,F
+46186,Regular,AFC Toronto,Mia Fontana,14,0,0,0,0,4,11,1,0,0,0,1,0,0,0,1,76,90,F
+46186,Regular,AFC Toronto,Victoria Pickett,14,0,0,0,0,10,13,0,0,1,0,0,0,0,0,1,76,90,D
+46186,Regular,AFC Toronto,Nyota Katembo,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,AFC Toronto,Danielle Krzyzaniak,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,AFC Toronto,Kaila Novak,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Montreal Roses FC,Lucy Cappadona,90,0,0,1,1,75,86,0,0,1,1,1,0,0,1,1,0,90,D
+46186,Regular,Montreal Roses FC,Anne-Valérie Seto,90,0,0,0,0,73,98,0,0,2,0,0,0,0,1,1,0,90,D
+46186,Regular,Montreal Roses FC,Chloe Minas,90,0,1,1,0,32,50,4,3,2,1,0,0,0,1,1,0,90,M
+46186,Regular,Montreal Roses FC,Lisa Pechersky,90,1,0,1,1,37,63,1,0,4,0,0,0,0,1,1,0,90,F
+46186,Regular,Montreal Roses FC,Elyse Bennett,90,0,0,1,1,22,43,1,0,1,0,0,0,0,1,1,0,90,F
+46186,Regular,Montreal Roses FC,Stephanie Hill,73,0,0,1,0,51,68,0,0,2,2,0,0,0,0,1,0,73,D
+46186,Regular,Montreal Roses FC,Hailey Whitaker,73,0,0,1,0,28,43,2,0,1,1,0,0,0,0,1,0,73,M
+46186,Regular,Montreal Roses FC,Mégane Sauvé,62,0,0,0,0,23,36,2,0,1,1,0,0,0,0,0,0,62,M
+46186,Regular,Montreal Roses FC,Charlotte Bilbault,62,0,0,3,1,41,52,0,0,4,0,0,0,0,0,0,0,62,M
+46186,Regular,Montreal Roses FC,Chae-Rim Kang,45,0,0,0,0,8,19,0,0,3,0,0,0,0,0,0,0,45,F
+46186,Regular,Montreal Roses FC,Tanya Boychuk,45,0,0,0,0,14,27,1,0,2,1,0,0,0,1,1,45,90,F
+46186,Regular,Montreal Roses FC,Evelyn Badu,28,0,0,1,1,3,8,0,0,1,1,0,0,0,1,1,62,90,M
+46186,Regular,Montreal Roses FC,Lorie Thibault,28,0,0,0,0,10,17,0,0,3,0,0,0,0,1,1,62,90,M
+46186,Regular,Montreal Roses FC,Marilou Harvey,17,0,0,0,0,2,9,0,0,1,1,0,0,0,1,0,73,90,M
+46186,Regular,Montreal Roses FC,Olivia Mbala,17,0,0,0,0,16,21,0,0,1,0,0,0,0,1,0,73,90,D
+46186,Regular,Montreal Roses FC,Anne-Marie Laroche,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46186,Regular,Montreal Roses FC,Claire Monyard,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
