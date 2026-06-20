@@ -48,7 +48,7 @@ test1 = player_stats.groupby(['Date','Team'])[['MIN','RC']].sum()
 print(test1[test1.MIN != 900].sort_values('MIN'))
 rc_rate = player_stats[player_stats.RC == 1]
 rc_rate = (rc_rate.GF.sum() - rc_rate.GA.sum()) / rc_rate.MIN.sum() * 90
-player_stats.loc[player_stats.RC == 1,('MIN','GF','GA')] = 0
+player_stats.loc[player_stats.RC == 1,('MIN','GF','GA','In','Out')] = 0
 player_stats = player_stats.groupby(['Date','Type','Team','Player','P']).sum(numeric_only=True).reset_index()
 
 goalie_stats = pd.read_csv('data/GoalieStats.txt')
