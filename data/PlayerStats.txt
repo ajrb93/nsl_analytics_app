@@ -4026,7 +4026,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46214,Regular,AFC Toronto,Danielle Krzyzaniak,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46214,Regular,AFC Toronto,Linda Owusu Ansah,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46214,Regular,AFC Toronto,Cloey Uddenberg,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-46214,Regular,AFC Toronto,Colby Barnett,31,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,59,90,
+46214,Regular,AFC Toronto,Colby Barnett,31,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,59,90,M
 46214,Regular,Ottawa Rapid FC,Jyllissa Harris,90,0,0,1,1,96,111,0,0,1,0,0,0,0,2,1,0,90,D
 46214,Regular,Ottawa Rapid FC,Olivia Scott,90,0,0,3,0,84,97,0,0,1,1,0,0,0,2,1,0,90,D
 46214,Regular,Ottawa Rapid FC,Min-Young Jung,90,0,0,0,0,74,86,0,0,1,3,0,0,0,2,1,0,90,M
