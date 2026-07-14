@@ -108,15 +108,9 @@
 106,1000009184,2026-07-04,Regular Season,Montreal Roses FC,Vancouver Rise FC,5.0,1.0,0.0,0.0,16.0,5.0,5.0,3.0,2026,True,True
 107,1000009185,2026-07-05,Regular Season,Ottawa Rapid FC,Calgary Wild FC,3.0,1.0,0.0,1.0,21.0,8.0,5.0,7.0,2026,True,True
 108,1000009186,2026-07-05,Regular Season,Halifax Tides FC,AFC Toronto,0.0,1.0,0.0,0.0,7.0,6.0,7.0,4.0,2026,True,True
-<<<<<<< Updated upstream
-109,1000009187,2026-07-11,Regular Season,Calgary Wild FC,Vancouver Rise FC,,,,,,,,,2026,True,True
-110,1000009188,2026-07-11,Regular Season,AFC Toronto,Ottawa Rapid FC,,,,,,,,,2026,True,True
-111,1000009189,2026-07-12,Regular Season,Montreal Roses FC,Halifax Tides FC,,,,,,,,,2026,True,True
-=======
 109,1000009187,2026-07-11,Regular Season,Calgary Wild FC,Vancouver Rise FC,2,4,1,1,10,4,9,2,2026,True,True
 110,1000009188,2026-07-11,Regular Season,AFC Toronto,Ottawa Rapid FC,1,2,0,0,14,3,15,10,2026,True,True
-111,1000009189,2026-07-12,Regular Season,Montreal Roses FC,Halifax Tides FC,1,0,1,0,0,0,0,0,2026,True,True
->>>>>>> Stashed changes
+111,1000009189,2026-07-12,Regular Season,Montreal Roses FC,Halifax Tides FC,1,0,1,0,5,2,4,6,2026,True,True
 112,1000009190,2026-07-16,Regular Season,Ottawa Rapid FC,Halifax Tides FC,,,,,,,,,2026,False,False
 113,1000009191,2026-07-17,Regular Season,Calgary Wild FC,Montreal Roses FC,,,,,,,,,2026,False,False
 114,1000009192,2026-07-18,Regular Season,AFC Toronto,Vancouver Rise FC,,,,,,,,,2026,False,False
