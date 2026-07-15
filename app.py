@@ -1117,7 +1117,7 @@ def plot_player_heatmaps(df,selected_team,selected_season):
     n_games = df.Date.nunique()
     names = 0.15
     header = 0.95
-    players = len(df_total) + 5
+    players = len(df_total) + len(position_breaks)
 
     ax.set_xlim(0,1)
     ax.set_ylim(0,1)
