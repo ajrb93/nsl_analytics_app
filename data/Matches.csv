@@ -111,8 +111,8 @@
 109,1000009187,2026-07-11,Regular Season,Calgary Wild FC,Vancouver Rise FC,2.0,4.0,1.0,1.0,10.0,4.0,9.0,2.0,2026,True,True
 110,1000009188,2026-07-11,Regular Season,AFC Toronto,Ottawa Rapid FC,1.0,2.0,0.0,0.0,14.0,3.0,15.0,10.0,2026,True,True
 111,1000009189,2026-07-12,Regular Season,Montreal Roses FC,Halifax Tides FC,1.0,0.0,1.0,0.0,5.0,2.0,4.0,6.0,2026,True,True
-112,1000009190,2026-07-16,Regular Season,Ottawa Rapid FC,Halifax Tides FC,,,,,,,,,2026,True,True
-113,1000009191,2026-07-17,Regular Season,Calgary Wild FC,Montreal Roses FC,,,,,,,,,2026,True,False
+112,1000009190,2026-07-16,Regular Season,Ottawa Rapid FC,Halifax Tides FC,2,1,0,0,4,6,17,6,2026,True,True
+113,1000009191,2026-07-17,Regular Season,Calgary Wild FC,Montreal Roses FC,0,2,0,0,3,1,14,4,2026,True,True
 114,1000009192,2026-07-18,Regular Season,AFC Toronto,Vancouver Rise FC,,,,,,,,,2026,False,False
 115,1000009193,2026-07-22,Regular Season,Calgary Wild FC,Ottawa Rapid FC,,,,,,,,,2026,False,False
 116,1000009194,2026-07-23,Regular Season,Montreal Roses FC,AFC Toronto,,,,,,,,,2026,False,False
