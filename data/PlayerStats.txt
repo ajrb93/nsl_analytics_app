@@ -4405,3 +4405,40 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46232,Regular,Montreal Roses FC,Marilou Harvey,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46232,Regular,Montreal Roses FC,Anne-Marie Laroche,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46232,Regular,Montreal Roses FC,Claire Monyard,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,Calgary Wild FC,Meikayla Moore,90,0,0,0,0,39,46,0,0,0,1,0,0,0,0,6,0,90,D
+46235,Regular,Calgary Wild FC,Sonia O'Neill,90,0,0,0,0,27,40,0,0,2,0,0,0,0,0,6,0,90,M
+46235,Regular,Calgary Wild FC,Serita Thurton,90,0,0,0,0,11,27,0,0,2,1,0,0,0,0,6,0,90,F
+46235,Regular,Calgary Wild FC,Jorian Baucom,90,0,0,2,1,18,39,0,0,2,1,0,0,0,0,6,0,90,F
+46235,Regular,Calgary Wild FC,Mya Jones,82,0,0,0,0,16,25,0,0,2,1,0,0,0,0,5,0,82,F
+46235,Regular,Calgary Wild FC,Hannah Boughton,75,0,0,0,0,12,18,1,0,2,2,0,0,0,0,5,0,75,M
+46235,Regular,Calgary Wild FC,Tilly James,53,0,0,0,0,9,26,1,0,1,0,0,0,0,0,3,37,90,F
+46235,Regular,Calgary Wild FC,Madison Pogarch,45,0,0,0,0,14,29,0,0,0,1,0,0,0,0,4,0,45,D
+46235,Regular,Calgary Wild FC,Taylor Otto,45,0,0,0,0,18,23,0,0,0,1,0,0,0,0,4,0,45,D
+46235,Regular,Calgary Wild FC,Caleigh Boeckx,45,0,0,0,0,12,20,0,0,1,0,0,0,0,0,2,45,90,D
+46235,Regular,Calgary Wild FC,Frédérique St-Jean,45,0,0,0,0,9,14,0,0,0,0,0,0,0,0,2,45,90,D
+46235,Regular,Calgary Wild FC,Taegan Stewart,37,0,0,0,0,5,10,4,5,0,0,0,0,0,0,3,0,37,F
+46235,Regular,Calgary Wild FC,Grace Stordy,33,0,0,0,0,12,20,0,0,2,2,0,0,0,0,1,0,33,D
+46235,Regular,Calgary Wild FC,Jenaya Robertson,15,0,0,0,0,2,4,0,0,0,0,0,0,0,0,1,75,90,M
+46235,Regular,Calgary Wild FC,Keelyn Stewart,8,0,0,0,0,7,10,0,0,1,0,0,0,0,0,1,82,90,F
+46235,Regular,Calgary Wild FC,Kahli Johnson,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,Calgary Wild FC,Sarah Keilty-Dilling,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,Calgary Wild FC,Grace Stordy,57,0,0,0,0,0,0,0,0,0,0,0,1,0,0,5,33,90,D
+46235,Regular,AFC Toronto,Shelina Zadorsky,90,0,0,1,0,74,87,1,0,0,3,0,0,0,6,0,0,90,D
+46235,Regular,AFC Toronto,Sarah Rollins,90,1,0,1,1,82,85,0,0,0,0,0,0,0,6,0,0,90,D
+46235,Regular,AFC Toronto,Victoria Pickett,90,0,1,0,0,70,83,6,5,0,0,0,0,0,6,0,0,90,D
+46235,Regular,AFC Toronto,Colby Barnett,90,1,0,1,1,43,76,9,6,2,1,0,0,0,6,0,0,90,M
+46235,Regular,AFC Toronto,Kaila Novak,90,1,0,4,1,30,47,2,0,3,1,0,0,0,6,0,0,90,M
+46235,Regular,AFC Toronto,Cloey Uddenberg,79,0,0,1,0,22,38,0,0,4,1,0,0,0,5,0,0,79,M
+46235,Regular,AFC Toronto,Kaylee Hunter,72,2,0,4,2,11,25,0,0,1,0,1,0,0,5,0,0,72,F
+46235,Regular,AFC Toronto,Nikayla Small,66,0,0,3,1,18,32,0,0,1,1,0,0,0,5,0,0,66,M
+46235,Regular,AFC Toronto,Nyota Katembo,66,0,0,1,0,19,34,0,0,1,3,0,0,0,5,0,0,66,M
+46235,Regular,AFC Toronto,Lauren Rowe,66,1,1,6,3,11,28,1,0,1,0,0,0,0,5,0,0,66,F
+46235,Regular,AFC Toronto,Olivia Chisholm,24,0,0,0,0,9,11,0,0,0,0,0,0,0,1,0,66,90,M
+46235,Regular,AFC Toronto,April Lantaigne,24,0,0,1,0,11,20,0,0,0,0,0,0,0,1,0,66,90,M
+46235,Regular,AFC Toronto,Lena Silano,24,0,0,0,0,2,6,0,0,0,0,0,0,0,1,0,66,90,F
+46235,Regular,AFC Toronto,Mia Fontana,18,0,0,0,0,3,6,0,0,0,0,0,0,0,1,0,72,90,F
+46235,Regular,AFC Toronto,Sarah Stratigakis,11,0,1,1,0,8,10,0,0,0,0,0,0,0,1,0,79,90,M
+46235,Regular,AFC Toronto,Jordan Brewster,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,AFC Toronto,Ashley Cathro,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,AFC Toronto,Zoe Burns,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46235,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
