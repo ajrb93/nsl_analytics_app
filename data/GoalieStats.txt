@@ -243,3 +243,7 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46232,Regular,Montreal Roses FC,Anna Karpenko,90,3,3,0,2,42,1,0,11,8,0
 46235,Regular,Calgary Wild FC,Katelin Talbert,90,6,3,0,0,44,1,0,14,10,0
 46235,Regular,AFC Toronto,Sabrina D'Angelo,90,0,1,1,0,19,1,0,2,0,0
+46237,Regular,Halifax Tides FC,Anika Tóth,120,3,5,0,0,64,1,1,18,7,0
+46237,Regular,Ottawa Rapid FC,Melissa Dagenais,120,2,9,0,2,82,3,0,19,11,0
+46241,Regular,Montreal Roses FC,Anna Karpenko,90,1,2,0,0,43,0,0,8,4,0
+46241,Regular,Halifax Tides FC,Anika Tóth,90,0,4,1,0,40,0,0,10,3,0
