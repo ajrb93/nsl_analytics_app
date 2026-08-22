@@ -76,7 +76,7 @@ vals /= np.sum(vals)
 player_stats['xGF'] = (player_stats.G * vals[0] + player_stats.A * vals[1] + player_stats.TSA * vals[3] + player_stats.OSA * vals[2] + 
                        player_stats.TP * vals[4] + player_stats.TCH * vals[5] + player_stats.TCR * vals[6])
 player_stats['xGF'] = player_stats.xGF - player_stats.xGF.sum() / player_stats.MIN.sum() * player_stats.MIN
-player_stats.xGF += player_stats.RC * rc_rate / 2
+player_stats.xGF += player_stats.RC * rc_rate * (90- player_stats.Out) / 90 / 2
 
 f_adj = (player_stats.groupby('P').sum(numeric_only=True).loc['F'].xGF / player_stats.groupby('P').sum(numeric_only=True).loc['F'].MIN)
 m_adj = (player_stats.groupby('P').sum(numeric_only=True).loc['M'].xGF / player_stats.groupby('P').sum(numeric_only=True).loc['M'].MIN)
@@ -89,7 +89,7 @@ player_stats['xGF'] = (player_stats.GF - player_stats.groupby(['Date','Team']).G
 player_stats['xGA'] = (player_stats.groupby(['Date','Team']).GF.max().mean() / 90 * player_stats.MIN - player_stats.TT * tt_val - 
                        player_stats.TCH * tch_val + player_stats.F * tsa_val + player_stats.YC * rc_rate / 20)
 player_stats['xGA'] = (player_stats.xGA - player_stats.xGA.sum() / player_stats.MIN.sum() * player_stats.MIN)
-player_stats.xGA -= player_stats.RC * rc_rate / 2
+player_stats.xGA -= player_stats.RC * rc_rate * (90- player_stats.Out) / 90 / 2
 
 f_adj = (player_stats.groupby('P').sum(numeric_only=True).loc['F'].xGA / player_stats.groupby('P').sum(numeric_only=True).loc['F'].MIN)
 m_adj = (player_stats.groupby('P').sum(numeric_only=True).loc['M'].xGA / player_stats.groupby('P').sum(numeric_only=True).loc['M'].MIN)
