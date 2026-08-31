@@ -267,3 +267,5 @@ Date,Type,Team,Goalkeeper,MIN,GA,SV,CS,PCH,TCH,DS,SS,ACIB,ACOB,OG
 46263,Regular,Halifax Tides FC,Anika Tóth,90,1,5,0,0,38,2,0,11,13,0
 46263,Regular,Vancouver Rise FC,Jessica Wulf,90,2,2,0,1,37,0,0,8,4,0
 46263,Regular,Calgary Wild FC,Sarah Keilty-Dilling,90,2,0,0,0,40,0,0,15,5,0
+46264,Regular,AFC Toronto,Sabrina D'Angelo,90,1,3,0,1,29,0,1,5,2,0
+46264,Regular,Ottawa Rapid FC,Melissa Dagenais,90,2,1,0,0,39,0,0,8,5,0

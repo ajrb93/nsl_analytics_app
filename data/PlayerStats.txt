@@ -4877,3 +4877,40 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46263,Regular,Calgary Wild FC,Keelyn Stewart,4,0,0,1,0,2,8,0,0,1,0,0,0,0,0,1,86,90,F
 46263,Regular,Calgary Wild FC,Katelin Talbert,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46263,Regular,Calgary Wild FC,Talia White,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,AFC Toronto,Shelina Zadorsky,90,0,0,0,0,59,75,7,0,0,0,0,0,0,2,1,0,90,D
+46264,Regular,AFC Toronto,Sarah Rollins,90,0,0,0,0,56,74,0,0,1,0,0,0,0,2,1,0,90,D
+46264,Regular,AFC Toronto,Colby Barnett,90,0,0,0,0,46,78,6,3,3,1,0,0,0,2,1,0,90,M
+46264,Regular,AFC Toronto,Olivia Chisholm,90,0,0,0,0,25,36,0,0,3,0,0,0,0,2,1,0,90,M
+46264,Regular,AFC Toronto,Nikayla Small,90,0,0,2,0,35,60,0,0,6,1,0,0,0,2,1,0,90,M
+46264,Regular,AFC Toronto,Lauren Rowe,90,0,0,2,1,22,45,1,0,3,3,0,0,0,2,1,0,90,F
+46264,Regular,AFC Toronto,Kaylee Hunter,89,1,1,6,1,26,53,1,0,3,1,0,0,0,2,1,0,89,M
+46264,Regular,AFC Toronto,Victoria Pickett,85,0,0,0,0,60,75,2,0,0,0,0,0,0,1,0,0,85,D
+46264,Regular,AFC Toronto,Zoe Burns,64,0,0,1,0,18,27,0,0,3,0,0,0,0,0,0,0,64,M
+46264,Regular,AFC Toronto,Lena Silano,64,0,0,1,0,19,31,1,0,0,1,0,0,0,0,0,0,64,F
+46264,Regular,AFC Toronto,Nyota Katembo,26,0,0,0,0,5,15,0,0,2,0,0,0,0,2,1,64,90,M
+46264,Regular,AFC Toronto,Sarah Stratigakis,26,1,0,1,1,6,8,0,0,0,0,0,0,0,2,1,64,90,F
+46264,Regular,AFC Toronto,April Lantaigne,5,0,0,0,0,3,8,0,1,0,0,0,0,0,1,1,85,90,D
+46264,Regular,AFC Toronto,Mia Fontana,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,89,90,M
+46264,Regular,AFC Toronto,Ashley Cathro,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,AFC Toronto,Gabriela Istocki,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,AFC Toronto,Isabella Lanzillotta,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,AFC Toronto,Croix Soto,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,Ottawa Rapid FC,Hannah Chown,90,0,0,1,1,43,66,0,0,2,0,0,0,0,1,2,0,90,D
+46264,Regular,Ottawa Rapid FC,Jyllissa Harris,90,0,0,0,0,70,84,0,0,2,1,0,0,0,1,2,0,90,D
+46264,Regular,Ottawa Rapid FC,Sadie Waite,90,0,0,0,0,56,66,0,0,1,1,0,0,0,1,2,0,90,D
+46264,Regular,Ottawa Rapid FC,Melanie Forbes,90,0,0,1,0,20,45,5,3,3,0,0,0,0,1,2,0,90,M
+46264,Regular,Ottawa Rapid FC,Min-Young Jung,90,0,0,0,0,54,67,0,0,3,3,1,0,0,1,2,0,90,M
+46264,Regular,Ottawa Rapid FC,Keera Melenhorst,90,0,0,1,1,49,73,1,0,3,2,0,0,0,1,2,0,90,M
+46264,Regular,Ottawa Rapid FC,Johanne Fridlund,90,0,0,3,1,24,39,1,0,2,0,0,0,0,1,2,0,90,F
+46264,Regular,Ottawa Rapid FC,Nicola Golen,68,0,0,0,0,27,47,0,0,2,2,0,0,0,0,0,0,68,M
+46264,Regular,Ottawa Rapid FC,Min-A Lee,45,0,0,0,0,19,21,0,2,0,2,0,0,0,0,0,0,45,F
+46264,Regular,Ottawa Rapid FC,Jazmine Wilkinson,45,0,0,0,0,9,10,0,0,0,0,0,0,0,0,0,0,45,F
+46264,Regular,Ottawa Rapid FC,Elise Bell,45,0,0,0,0,21,33,0,0,3,1,0,0,0,1,2,45,90,F
+46264,Regular,Ottawa Rapid FC,Florence Belzile,45,1,0,1,1,4,15,0,0,2,0,0,0,0,1,2,45,90,F
+46264,Regular,Ottawa Rapid FC,Ngozi Okobi-Okeoghene,12,0,1,0,0,6,13,0,0,2,0,0,0,0,1,1,78,90,M
+46264,Regular,Ottawa Rapid FC,Kayla Adamek,10,0,0,0,0,1,5,1,0,0,0,0,0,0,0,1,68,78,M
+46264,Regular,Ottawa Rapid FC,Caitlin Crichton,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,Ottawa Rapid FC,Mollie Eriksson,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,Ottawa Rapid FC,Susanne Haaland,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46264,Regular,Ottawa Rapid FC,Delaney Pridham,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
