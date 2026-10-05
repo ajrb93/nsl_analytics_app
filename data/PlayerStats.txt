@@ -5412,3 +5412,41 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46298,Regular,Calgary Wild FC,Keelyn Stewart,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46298,Regular,Calgary Wild FC,Katelin Talbert,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46298,Regular,Calgary Wild FC,Andersen Williams,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,AFC Toronto,Colby Barnett,120,0,0,0,0,72,92,2,1,2,1,1,0,0,2,1,0,120,D
+46299,Regular,AFC Toronto,Shelina Zadorsky,120,0,1,1,0,83,103,0,0,3,0,0,0,0,2,1,0,120,D
+46299,Regular,AFC Toronto,Sarah Rollins,120,0,0,0,0,64,72,0,0,0,0,0,0,0,2,1,0,120,D
+46299,Regular,AFC Toronto,April Lantaigne,120,0,0,2,1,32,70,5,3,2,2,0,0,0,2,1,0,120,M
+46299,Regular,AFC Toronto,Kaylee Hunter,120,1,0,9,4,23,65,4,0,2,3,0,0,0,2,1,0,120,F
+46299,Regular,AFC Toronto,Lena Silano,120,1,0,3,1,54,85,3,0,2,0,0,0,0,2,1,0,120,F
+46299,Regular,AFC Toronto,Nikayla Small,119,0,0,0,0,69,106,1,0,7,0,0,0,0,2,1,0,119,M
+46299,Regular,AFC Toronto,Nyota Katembo,89,0,0,0,0,30,65,1,0,5,1,0,0,0,1,1,0,89,M
+46299,Regular,AFC Toronto,Lauren Rowe,69,0,1,3,0,23,37,1,0,0,0,0,0,0,1,1,0,69,F
+46299,Regular,AFC Toronto,Olivia Chisholm,64,0,0,0,0,20,28,0,0,2,3,1,0,0,1,1,0,64,M
+46299,Regular,AFC Toronto,Zoë Hasenauer,56,0,0,1,0,48,56,0,0,2,0,0,0,0,1,0,64,120,M
+46299,Regular,AFC Toronto,Sarah Stratigakis,51,0,0,2,0,25,34,0,0,0,0,0,0,0,1,0,69,120,F
+46299,Regular,AFC Toronto,Zoe Burns,31,0,0,0,0,21,33,1,0,1,0,0,0,0,1,0,89,120,M
+46299,Regular,AFC Toronto,Cloey Uddenberg,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,119,120,M
+46299,Regular,AFC Toronto,Ashley Cathro,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,AFC Toronto,Mia Fontana,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,AFC Toronto,Croix Soto,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,AFC Toronto,Jasmine Vilgrain,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,Vancouver Rise FC,Yuka Okamoto,120,0,0,0,0,48,95,0,0,6,1,0,0,0,1,2,0,120,D
+46299,Regular,Vancouver Rise FC,Tori Tumeth,120,0,0,1,0,60,75,1,0,0,0,0,0,0,1,2,0,120,D
+46299,Regular,Vancouver Rise FC,Anna Bout,120,0,0,0,0,42,58,3,0,4,0,0,0,0,1,2,0,120,M
+46299,Regular,Vancouver Rise FC,Latifah Abdu,120,1,0,3,2,14,37,0,0,3,6,1,0,0,1,2,0,120,F
+46299,Regular,Vancouver Rise FC,Mia Pante,105,0,0,1,0,24,57,8,2,5,1,0,0,0,1,2,0,105,M
+46299,Regular,Vancouver Rise FC,Chantelle Swaby,100,0,0,0,0,62,77,0,0,2,1,0,0,0,1,2,0,100,D
+46299,Regular,Vancouver Rise FC,Jessica De Filippo,90,0,0,7,2,37,58,0,0,2,0,0,0,0,1,1,0,90,F
+46299,Regular,Vancouver Rise FC,Kaela Hansen,75,0,0,0,0,38,60,2,0,1,1,0,0,0,0,1,45,120,D
+46299,Regular,Vancouver Rise FC,Camila Reyes,66,0,1,0,0,35,49,3,2,3,0,0,0,0,1,1,0,66,M
+46299,Regular,Vancouver Rise FC,Josie Longhurst,65,0,0,1,0,32,50,0,0,2,1,0,0,0,0,1,55,120,M
+46299,Regular,Vancouver Rise FC,Jessika Cowart,55,0,0,1,0,28,36,0,0,1,1,0,0,0,1,1,0,55,M
+46299,Regular,Vancouver Rise FC,Alexandria Lamontagne,54,0,0,0,0,10,22,2,0,2,0,0,0,0,0,1,66,120,M
+46299,Regular,Vancouver Rise FC,Sura Yekka,45,0,0,0,0,27,35,1,0,0,0,0,0,0,1,1,0,45,D
+46299,Regular,Vancouver Rise FC,Anaïs Oularbi,30,0,0,0,0,9,11,0,0,0,1,0,0,0,0,1,90,120,F
+46299,Regular,Vancouver Rise FC,Jaylyn Wright,20,0,0,0,0,10,16,0,0,0,1,0,0,0,0,0,100,120,D
+46299,Regular,Vancouver Rise FC,Nikki Stanton,15,0,0,0,0,7,11,0,0,3,0,0,0,0,0,0,105,120,M
+46299,Regular,Vancouver Rise FC,Audrey François,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,Vancouver Rise FC,Shannon Woeller,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+46299,Regular,Vancouver Rise FC,Jessica Wulf,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
