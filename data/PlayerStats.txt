@@ -3282,7 +3282,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46155,Regular,Halifax Tides FC,Stella Downing,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46155,Regular,Halifax Tides FC,Annika Leslie,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46155,Regular,Halifax Tides FC,Samantha St. Croix,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-46158,Regular,Calgary Wild FC,Caleigh Boeckx,90,0,0,0,0,31,62,0,0,0,1,0,0,0,1,2,0,90,D
+46158,Regular,Calgary Wild FC,Caleigh Boeckx,90,0,0,0,0,31,62,0,0,0,1,0,0,0,2,2,0,90,D
 46158,Regular,Calgary Wild FC,Talia White,90,0,0,0,0,18,33,0,0,3,0,0,0,0,2,2,0,90,D
 46158,Regular,Calgary Wild FC,Grace Stordy,90,0,0,0,0,39,82,1,0,3,0,0,0,0,2,2,0,90,D
 46158,Regular,Calgary Wild FC,Meggie Dougherty Howard,90,0,0,2,1,28,52,6,3,1,1,0,0,0,2,2,0,90,M
@@ -4998,7 +4998,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46271,Regular,AFC Toronto,Mia Fontana,30,0,0,1,0,11,17,0,0,1,0,0,0,0,0,0,60,90,M
 46271,Regular,AFC Toronto,Croix Soto,30,0,0,0,0,13,24,3,1,1,0,0,0,0,0,0,60,90,D
 46271,Regular,AFC Toronto,Zoe Burns,18,0,0,0,0,7,9,1,0,0,0,0,0,0,0,0,72,90,M
-46271,Regular,AFC Toronto,Zoe Hasenauer,18,0,0,1,1,9,13,0,0,1,0,0,0,0,0,0,72,90,M
+46271,Regular,AFC Toronto,Zoë Hasenauer,18,0,0,1,1,9,13,0,0,1,0,0,0,0,0,0,72,90,M
 46271,Regular,AFC Toronto,Ashley Cathro,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46271,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46271,Regular,AFC Toronto,Gabriela Istocki,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -5052,7 +5052,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46275,Regular,AFC Toronto,Nyota Katembo,75,0,0,1,0,28,52,1,0,1,2,0,0,0,0,1,0,75,M
 46275,Regular,AFC Toronto,Zoe Burns,15,0,0,0,0,5,7,0,0,0,0,0,0,0,2,1,75,90,M
 46275,Regular,AFC Toronto,Mia Fontana,15,0,0,1,0,3,13,2,0,0,1,0,0,0,2,1,75,90,M
-46275,Regular,AFC Toronto,Zoe Hasenauer,15,0,0,0,0,7,10,0,0,0,1,0,0,0,2,1,75,90,M
+46275,Regular,AFC Toronto,Zoë Hasenauer,15,0,0,0,0,7,10,0,0,0,1,0,0,0,2,1,75,90,M
 46275,Regular,AFC Toronto,Ashley Cathro,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46275,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46275,Regular,AFC Toronto,Gabriela Istocki,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -5156,7 +5156,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46284,Regular,AFC Toronto,Sarah Stratigakis,75,0,0,2,0,23,32,0,0,1,1,0,0,0,1,1,0,75,M
 46284,Regular,AFC Toronto,Zoe Burns,64,0,0,1,0,24,41,2,0,2,1,0,0,0,1,1,0,64,M
 46284,Regular,AFC Toronto,Cloey Uddenberg,45,0,0,0,0,14,21,0,0,1,1,0,0,0,1,0,0,45,M
-46284,Regular,AFC Toronto,Zoe Hasenauer,45,0,0,0,0,26,33,0,0,1,0,0,0,0,0,1,45,90,M
+46284,Regular,AFC Toronto,Zoë Hasenauer,45,0,0,0,0,26,33,0,0,1,0,0,0,0,0,1,45,90,M
 46284,Regular,AFC Toronto,Nyota Katembo,26,0,0,0,0,15,26,1,0,1,1,0,0,0,0,0,64,90,M
 46284,Regular,AFC Toronto,Mia Fontana,15,0,0,2,0,4,7,1,0,0,0,0,0,0,0,0,75,90,M
 46284,Regular,AFC Toronto,April Lantaigne,8,0,0,2,1,3,8,1,0,0,0,0,0,0,0,0,82,90,F
@@ -5243,7 +5243,7 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46291,Regular,AFC Toronto,Kaylee Hunter,78,0,0,5,1,22,48,0,0,3,0,0,0,0,2,0,0,78,M
 46291,Regular,AFC Toronto,Nyota Katembo,64,0,0,1,0,29,60,1,0,2,0,0,0,0,2,0,0,64,M
 46291,Regular,AFC Toronto,Olivia Chisholm,63,0,0,1,1,22,32,0,0,1,1,0,0,0,2,0,0,63,M
-46291,Regular,AFC Toronto,Zoe Hasenauer,27,0,0,0,0,16,22,0,0,0,1,0,0,0,1,0,63,90,M
+46291,Regular,AFC Toronto,Zoë Hasenauer,27,0,0,0,0,16,22,0,0,0,1,0,0,0,1,0,63,90,M
 46291,Regular,AFC Toronto,Zoe Burns,26,0,0,0,0,10,17,1,0,0,0,0,0,0,1,0,64,90,M
 46291,Regular,AFC Toronto,Sarah Stratigakis,12,1,0,2,2,8,11,0,0,0,0,0,0,0,1,0,78,90,M
 46291,Regular,AFC Toronto,Mia Fontana,2,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,88,90,F
