@@ -53,6 +53,13 @@ rc_rate = (rc_rate.GF.sum() - rc_rate.GA.sum()) / rc_rate.MIN.sum() * 90
 player_stats.loc[player_stats.RC == 1,('MIN','GF','GA','In','Out')] = 0
 player_stats = player_stats.groupby(['Date','Type','Team','Player','P']).sum(numeric_only=True).reset_index()
 
+player_stats[['MIN','In','Out']] = player_stats[['MIN','In','Out']].astype('float')
+for i,j in test1[test1.MIN == 1200].index:
+    print(i,j)
+    player_stats.loc[(player_stats.Date == i) & (player_stats.Team == j),'MIN'] = player_stats.MIN / 120 * 90
+    player_stats.loc[(player_stats.Date == i) & (player_stats.Team == j),'In'] = player_stats.In / 120 * 90
+    player_stats.loc[(player_stats.Date == i) & (player_stats.Team == j),'Out'] = player_stats.Out / 120 * 90
+
 goalie_stats = pd.read_csv('data/GoalieStats.txt')
 goalie_stats.Date = pd.to_datetime(goalie_stats.Date, unit='D', origin='1899-12-30')
 test2 = goalie_stats.groupby(['Date','Team']).MIN.sum().reset_index()
