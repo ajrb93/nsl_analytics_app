@@ -5497,8 +5497,8 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46313,Regular,AFC Toronto,Olivia Chisholm,45,0,0,0,0,17,24,0,0,0,1,0,0,0,1,0,0,45,M
 46313,Regular,AFC Toronto,Zoë Hasenauer,45,0,0,1,0,28,44,0,0,3,2,0,0,0,0,0,45,90,M
 46313,Regular,AFC Toronto,Ashley Cathro,29,0,0,0,0,21,24,0,0,1,1,0,0,0,0,0,61,90,D
-46313,Regular,AFC Toronto,Zoe Burns,23,0,0,0,0,8,11,1,0,0,0,0,0,0,0,0,67,M,M
-46313,Regular,AFC Toronto,Sarah Stratigakis,23,0,0,1,0,9,17,1,0,0,0,0,0,0,0,0,67,M,M
+46313,Regular,AFC Toronto,Zoe Burns,23,0,0,0,0,8,11,1,0,0,0,0,0,0,0,0,67,90,M
+46313,Regular,AFC Toronto,Sarah Stratigakis,23,0,0,1,0,9,17,1,0,0,0,0,0,0,0,0,67,90,M
 46313,Regular,AFC Toronto,Sierra Deolinda Cota-Yarde,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46313,Regular,AFC Toronto,Mia Fontana,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46313,Regular,AFC Toronto,Kaila Novak,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
