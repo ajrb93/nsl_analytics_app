@@ -5485,7 +5485,6 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46312,Regular,Montreal Roses FC,Hailey Whitaker,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46312,Regular,Montreal Roses FC,Anne-Marie Laroche,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46312,Regular,Montreal Roses FC,Julia Leas,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-46312,Regular,Montreal Roses FC,Lorie Thibault,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46313,Regular,AFC Toronto,Colby Barnett,90,0,0,0,0,86,104,10,5,1,0,0,0,0,1,0,0,90,D
 46313,Regular,AFC Toronto,Sarah Rollins,90,0,0,0,0,61,66,2,0,0,2,0,0,0,1,0,0,90,D
 46313,Regular,AFC Toronto,Kaylee Hunter,90,0,0,6,1,27,55,4,0,2,1,0,0,0,1,0,0,90,M
@@ -5551,7 +5550,6 @@ Date,Type,Team,Player,MIN,G,A,TSA,OSA,TP,TCH,TCR,CT,TT,F,YC,RC,OG,GF,GA,In,Out,P
 46313,Regular,Vancouver Rise FC,Latifah Abdu,90,1,0,2,2,22,34,0,0,2,2,0,0,0,2,5,0,90,F
 46313,Regular,Vancouver Rise FC,Yuka Okamoto,83,0,0,0,0,32,52,3,0,3,0,0,0,0,2,3,0,83,D
 46313,Regular,Vancouver Rise FC,Josie Longhurst,69,0,0,0,0,31,40,1,0,1,1,0,0,0,2,3,0,69,M
-46313,Regular,Vancouver Rise FC,Morgan McAslan,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 46313,Regular,Vancouver Rise FC,Nikki Stanton,21,0,0,0,0,15,17,0,0,1,2,1,0,0,0,2,69,90,M
 46313,Regular,Vancouver Rise FC,Anaïs Oularbi,7,0,0,0,0,4,8,0,0,1,0,0,0,0,0,2,83,90,D
 46313,Regular,Vancouver Rise FC,Sura Yekka,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
