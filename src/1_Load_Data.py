@@ -34,6 +34,8 @@ def refresh_matches(year):
     df = pd.DataFrame(fixtures_list)
     df["home_team"] = df["home_team"].apply(lambda x: unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode("ascii"))
     df["away_team"] = df["away_team"].apply(lambda x: unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode("ascii"))
+    df["home_team"] = df["home_team"].str.replace(' (W)','',regex=False)
+    df["away_team"] = df["away_team"].str.replace(' (W)','',regex=False)
     df.date = pd.to_datetime(df.date,format='mixed').dt.tz_convert('EST').dt.date
     df = original_df.merge(df,how='outer',on=['match_id','date','home_team','away_team','round']).sort_values(['date','match_id'])
     df[['status','finished']] = df[['status','finished']].fillna(True)
